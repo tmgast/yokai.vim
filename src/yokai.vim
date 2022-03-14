@@ -906,7 +906,7 @@ function! s:create_context() abort
 endfunction
 
 call pgmnt#compile(s:create_context(), {
-      \   'output': '../colors/iceberg.vim',
+      \   'output': '../colors/yokai.vim',
       \   'template': './template.vim',
       \ })
 
@@ -995,11 +995,11 @@ endfunction
 
 call pgmnt#compile(
       \ s:create_xline_context(), {
-      \   'output': '../autoload/airline/themes/iceberg.vim',
+      \   'output': '../autoload/airline/themes/yokai.vim',
       \   'template': './template-airline.vim',
       \ })
 call pgmnt#compile(
       \ s:create_xline_context(), {
-      \   'output': '../autoload/lightline/colorscheme/iceberg.vim',
+      \   'output': '../autoload/lightline/colorscheme/yokai.vim',
       \   'template': './template-lightline.vim',
       \ })
