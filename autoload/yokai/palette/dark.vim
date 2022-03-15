@@ -15,9 +15,9 @@ function! yokai#palette#dark#create() abort
   " palette
   let g.blue   = pgmnt#color#hsl(hue_blue,   0.38, 0.55)
   let g.lblue  = pgmnt#color#hsl(hue_lblue,  0.30, 0.65)
-  let g.green  = pgmnt#color#hsl(hue_green,  0.38, 0.50)
-  let g.orange = pgmnt#color#hsl(hue_orange, 0.84, 0.66)
-  let g.purple = pgmnt#color#hsl(hue_purple, 0.34, 0.65)
+  let g.green  = pgmnt#color#hsl(hue_green,  0.18, 0.45)
+  let g.orange = pgmnt#color#hsl(hue_orange, 0.45, 0.60)
+  let g.purple = pgmnt#color#hsl(hue_purple, 0.34, 0.55)
   let g.red    = pgmnt#color#hsl(hue_red,    0.35, 0.39)
   let g.pale   = pgmnt#color#hsl(hue_pale,   0.11, 0.71)
 

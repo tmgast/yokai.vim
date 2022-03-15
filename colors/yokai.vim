@@ -3,7 +3,7 @@
 "
 " File:       yokai.vim
 " Maintainer: cocopon <cocopon@me.com>
-" Modified:   2022-03-15 21:20+0900
+" Modified:   2022-03-16 07:05+0900
 " License:    MIT
 
 
@@ -159,15 +159,15 @@ else
   hi CursorLine cterm=NONE ctermbg=235 ctermfg=NONE guibg=#1d1d14 guifg=NONE
   hi Comment ctermfg=242 guifg=#89896b
   hi Conceal ctermbg=234 ctermfg=242 guibg=#0e0e0b guifg=#89896b
-  hi Constant ctermfg=140 guifg=#9e87c4
+  hi Constant ctermfg=140 guifg=#8365b3
   hi Cursor ctermbg=252 ctermfg=234 guibg=#d1d1c6 guifg=#0e0e0b
   hi CursorLineNr cterm=NONE ctermbg=237 ctermfg=253 guibg=#404023 guifg=#d9d9bb
   hi Delimiter ctermfg=252 guifg=#d1d1c6
-  hi DiffAdd ctermbg=29 ctermfg=158 guibg=#213e2a guifg=#a9c6ad
-  hi DiffChange ctermbg=23 ctermfg=159 guibg=#3d4246 guifg=#c5cac9
+  hi DiffAdd ctermbg=29 ctermfg=158 guibg=#263228 guifg=#aebaab
+  hi DiffChange ctermbg=23 ctermfg=159 guibg=#333a41 guifg=#bbc2c4
   hi DiffDelete cterm=NONE ctermbg=95 ctermfg=224 gui=NONE guibg=#311d1c guifg=#baa59f
-  hi DiffText cterm=NONE ctermbg=30 ctermfg=195 gui=NONE guibg=#6c7682 guifg=#d1d1c6
-  hi Directory ctermfg=109 guifg=#acbcd2
+  hi DiffText cterm=NONE ctermbg=30 ctermfg=195 gui=NONE guibg=#586677 guifg=#d1d1c6
+  hi Directory ctermfg=109 guifg=#8aa2c0
   hi Error ctermbg=234 ctermfg=203 guibg=#0e0e0b guifg=#864044
   hi ErrorMsg ctermbg=234 ctermfg=203 guibg=#0e0e0b guifg=#864044
   hi WarningMsg ctermbg=234 ctermfg=203 guibg=#0e0e0b guifg=#864044
@@ -177,44 +177,44 @@ else
   hi Folded ctermbg=235 ctermfg=245 guibg=#1d1d14 guifg=#808062
   hi FoldColumn ctermbg=235 ctermfg=239 guibg=#1d1d14 guifg=#59593d
   hi Function ctermfg=110 guifg=#6086b7
-  hi Identifier cterm=NONE ctermfg=109 guifg=#acbcd2
+  hi Identifier cterm=NONE ctermfg=109 guifg=#8aa2c0
   hi Ignore ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
   hi Include ctermfg=110 guifg=#6086b7
   hi IncSearch cterm=reverse ctermfg=NONE gui=reverse guifg=NONE term=reverse
   hi LineNr ctermbg=235 ctermfg=239 guibg=#1d1d14 guifg=#59593d
   hi MatchParen ctermbg=237 ctermfg=255 guibg=#474737 guifg=#ffffff
   hi ModeMsg ctermfg=242 guifg=#89896b
-  hi MoreMsg ctermfg=150 guifg=#4faf75
+  hi MoreMsg ctermfg=150 guifg=#5e876e
   hi Operator ctermfg=110 guifg=#6086b7
   hi Pmenu ctermbg=236 ctermfg=251 guibg=#5b5b3d guifg=#d1d1c6
   hi PmenuSbar ctermbg=236 ctermfg=NONE guibg=#5b5b3d guifg=NONE
   hi PmenuSel ctermbg=240 ctermfg=255 guibg=#89895b guifg=#f4f4ef
   hi PmenuThumb ctermbg=251 ctermfg=NONE guibg=#d1d1c6 guifg=NONE
-  hi PreProc ctermfg=150 guifg=#4faf75
-  hi Question ctermfg=150 guifg=#4faf75
+  hi PreProc ctermfg=150 guifg=#5e876e
+  hi Question ctermfg=150 guifg=#5e876e
   hi QuickFixLine ctermbg=236 ctermfg=252 guibg=#2c2c1f guifg=#d1d1c6
   hi Search ctermbg=216 ctermfg=234 guibg=#e49680 guifg=#391b13
   hi SignColumn ctermbg=235 ctermfg=239 guibg=#1d1d14 guifg=#59593d
-  hi Special ctermfg=150 guifg=#4faf75
+  hi Special ctermfg=150 guifg=#5e876e
   hi SpecialKey ctermfg=240 guifg=#7c7c4f
   hi SpellBad ctermbg=95 ctermfg=252 gui=undercurl guifg=NONE guisp=#864044
   hi SpellCap ctermbg=24 ctermfg=252 gui=undercurl guifg=NONE guisp=#6086b7
-  hi SpellLocal ctermbg=23 ctermfg=252 gui=undercurl guifg=NONE guisp=#acbcd2
-  hi SpellRare ctermbg=97 ctermfg=252 gui=undercurl guifg=NONE guisp=#9e87c4
+  hi SpellLocal ctermbg=23 ctermfg=252 gui=undercurl guifg=NONE guisp=#8aa2c0
+  hi SpellRare ctermbg=97 ctermfg=252 gui=undercurl guifg=NONE guisp=#8365b3
   hi Statement ctermfg=110 gui=NONE guifg=#6086b7
   hi StatusLine cterm=reverse ctermbg=234 ctermfg=245 gui=reverse guibg=#1b1b17 guifg=#969681 term=reverse
   hi StatusLineTerm cterm=reverse ctermbg=234 ctermfg=245 gui=reverse guibg=#1b1b17 guifg=#969681 term=reverse
   hi StatusLineNC cterm=reverse ctermbg=238 ctermfg=233 gui=reverse guibg=#474737 guifg=#050504
   hi StatusLineTermNC cterm=reverse ctermbg=238 ctermfg=233 gui=reverse guibg=#474737 guifg=#050504
   hi StorageClass ctermfg=110 guifg=#6086b7
-  hi String ctermfg=150 guifg=#4faf75
+  hi String ctermfg=150 guifg=#5e876e
   hi Structure ctermfg=110 guifg=#6086b7
   hi TabLine cterm=NONE ctermbg=233 ctermfg=238 gui=NONE guibg=#050504 guifg=#474737
   hi TabLineFill cterm=reverse ctermbg=238 ctermfg=233 gui=reverse guibg=#474737 guifg=#050504
   hi TabLineSel cterm=NONE ctermbg=234 ctermfg=252 gui=NONE guibg=#0e0e0b guifg=#a0a097
   hi TermCursorNC ctermbg=242 ctermfg=234 guibg=#89896b guifg=#0e0e0b
-  hi Title ctermfg=216 gui=NONE guifg=#f17f5f
-  hi Todo ctermbg=234 ctermfg=150 guibg=#213e2a guifg=#4faf75
+  hi Title ctermfg=216 gui=NONE guifg=#c67e6b
+  hi Todo ctermbg=234 ctermfg=150 guibg=#263228 guifg=#5e876e
   hi Type ctermfg=110 gui=NONE guifg=#6086b7
   hi Underlined cterm=underline ctermfg=110 gui=underline guifg=#6086b7 term=underline
   hi VertSplit cterm=NONE ctermbg=233 ctermfg=233 gui=NONE guibg=#050504 guifg=#050504
@@ -222,44 +222,44 @@ else
   hi VisualNOS ctermbg=236 ctermfg=NONE guibg=#2c2c1f guifg=NONE
   hi WildMenu ctermbg=255 ctermfg=234 guibg=#dbdbd4 guifg=#1b1b17
   hi yokaiNormalFg ctermfg=252 guifg=#d1d1c6
-  hi diffAdded ctermfg=150 guifg=#4faf75
+  hi diffAdded ctermfg=150 guifg=#5e876e
   hi diffRemoved ctermfg=203 guifg=#864044
   hi ALEErrorSign ctermbg=235 ctermfg=203 guibg=#1d1d14 guifg=#864044
-  hi ALEWarningSign ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#f17f5f
+  hi ALEWarningSign ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#c67e6b
   hi ALEVirtualTextError ctermfg=203 guifg=#864044
-  hi ALEVirtualTextWarning ctermfg=216 guifg=#f17f5f
+  hi ALEVirtualTextWarning ctermfg=216 guifg=#c67e6b
   hi CtrlPMode1 ctermbg=236 ctermfg=242 guibg=#323226 guifg=#89896b
   hi EasyMotionShade ctermfg=239 guifg=#5b5b3d
-  hi EasyMotionTarget ctermfg=150 guifg=#4faf75
-  hi EasyMotionTarget2First ctermfg=216 guifg=#f17f5f
-  hi EasyMotionTarget2Second ctermfg=216 guifg=#f17f5f
-  hi GitGutterAdd ctermbg=235 ctermfg=150 guibg=#1d1d14 guifg=#4faf75
-  hi GitGutterChange ctermbg=235 ctermfg=109 guibg=#1d1d14 guifg=#acbcd2
-  hi GitGutterChangeDelete ctermbg=235 ctermfg=109 guibg=#1d1d14 guifg=#acbcd2
+  hi EasyMotionTarget ctermfg=150 guifg=#5e876e
+  hi EasyMotionTarget2First ctermfg=216 guifg=#c67e6b
+  hi EasyMotionTarget2Second ctermfg=216 guifg=#c67e6b
+  hi GitGutterAdd ctermbg=235 ctermfg=150 guibg=#1d1d14 guifg=#5e876e
+  hi GitGutterChange ctermbg=235 ctermfg=109 guibg=#1d1d14 guifg=#8aa2c0
+  hi GitGutterChangeDelete ctermbg=235 ctermfg=109 guibg=#1d1d14 guifg=#8aa2c0
   hi GitGutterDelete ctermbg=235 ctermfg=203 guibg=#1d1d14 guifg=#864044
   hi gitmessengerEndOfBuffer ctermbg=235 ctermfg=239 guibg=#1d1d14 guifg=#59593d
   hi gitmessengerPopupNormal ctermbg=235 ctermfg=252 guibg=#1d1d14 guifg=#d1d1c6
-  hi Sneak ctermbg=140 ctermfg=234 guibg=#9e87c4 guifg=#0e0e0b
+  hi Sneak ctermbg=140 ctermfg=234 guibg=#8365b3 guifg=#0e0e0b
   hi SneakScope ctermbg=236 ctermfg=242 guibg=#2c2c1f guifg=#89896b
   hi SyntasticErrorSign ctermbg=235 ctermfg=203 guibg=#1d1d14 guifg=#864044
   hi SyntasticStyleErrorSign ctermbg=235 ctermfg=203 guibg=#1d1d14 guifg=#864044
-  hi SyntasticStyleWarningSign ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#f17f5f
-  hi SyntasticWarningSign ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#f17f5f
+  hi SyntasticStyleWarningSign ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#c67e6b
+  hi SyntasticWarningSign ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#c67e6b
   hi TSFunction ctermfg=252 guifg=#bdb8ac
   hi TSFunctionBuiltin ctermfg=252 guifg=#bdb8ac
   hi TSFunctionMacro ctermfg=252 guifg=#bdb8ac
   hi TSMethod ctermfg=252 guifg=#bdb8ac
-  hi TSURI cterm=underline ctermfg=109 gui=underline guifg=#acbcd2 term=underline
+  hi TSURI cterm=underline ctermfg=109 gui=underline guifg=#8aa2c0 term=underline
   hi ZenSpace ctermbg=203 guibg=#864044
-  hi DiagnosticUnderlineInfo cterm=underline ctermfg=109 gui=underline guisp=#acbcd2 term=underline
-  hi DiagnosticInfo ctermfg=109 guifg=#acbcd2
-  hi DiagnosticSignInfo ctermbg=235 ctermfg=109 guibg=#1d1d14 guifg=#acbcd2
+  hi DiagnosticUnderlineInfo cterm=underline ctermfg=109 gui=underline guisp=#8aa2c0 term=underline
+  hi DiagnosticInfo ctermfg=109 guifg=#8aa2c0
+  hi DiagnosticSignInfo ctermbg=235 ctermfg=109 guibg=#1d1d14 guifg=#8aa2c0
   hi DiagnosticUnderlineHint cterm=underline ctermfg=242 gui=underline guisp=#89896b term=underline
   hi DiagnosticHint ctermfg=242 guifg=#89896b
   hi DiagnosticSignHint ctermbg=235 ctermfg=242 guibg=#1d1d14 guifg=#89896b
-  hi DiagnosticUnderlineWarn cterm=underline ctermfg=216 gui=underline guisp=#f17f5f term=underline
-  hi DiagnosticWarn ctermfg=216 guifg=#f17f5f
-  hi DiagnosticSignWarn ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#f17f5f
+  hi DiagnosticUnderlineWarn cterm=underline ctermfg=216 gui=underline guisp=#c67e6b term=underline
+  hi DiagnosticWarn ctermfg=216 guifg=#c67e6b
+  hi DiagnosticSignWarn ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#c67e6b
   hi DiagnosticUnderlineError cterm=underline ctermfg=203 gui=underline guisp=#864044 term=underline
   hi DiagnosticError ctermfg=203 guifg=#864044
   hi DiagnosticSignError ctermbg=235 ctermfg=203 guibg=#1d1d14 guifg=#864044
@@ -269,22 +269,22 @@ else
   if has('nvim')
     let g:terminal_color_0 = '#1d1d14'
     let g:terminal_color_1 = '#864044'
-    let g:terminal_color_2 = '#4faf75'
-    let g:terminal_color_3 = '#f17f5f'
+    let g:terminal_color_2 = '#5e876e'
+    let g:terminal_color_3 = '#c67e6b'
     let g:terminal_color_4 = '#6086b7'
-    let g:terminal_color_5 = '#9e87c4'
-    let g:terminal_color_6 = '#acbcd2'
+    let g:terminal_color_5 = '#8365b3'
+    let g:terminal_color_6 = '#8aa2c0'
     let g:terminal_color_7 = '#d1d1c6'
     let g:terminal_color_8 = '#89896b'
     let g:terminal_color_9 = '#9c4247'
-    let g:terminal_color_10 = '#5abd81'
-    let g:terminal_color_11 = '#f68f72'
+    let g:terminal_color_10 = '#629c78'
+    let g:terminal_color_11 = '#d18b78'
     let g:terminal_color_12 = '#6c92c4'
-    let g:terminal_color_13 = '#aa94d0'
-    let g:terminal_color_14 = '#b9c8dd'
+    let g:terminal_color_13 = '#8f70c0'
+    let g:terminal_color_14 = '#96aecc'
     let g:terminal_color_15 = '#deded2'
   else
-    let g:terminal_ansi_colors = ['#1d1d14', '#864044', '#4faf75', '#f17f5f', '#6086b7', '#9e87c4', '#acbcd2', '#d1d1c6', '#89896b', '#9c4247', '#5abd81', '#f68f72', '#6c92c4', '#aa94d0', '#b9c8dd', '#deded2']
+    let g:terminal_ansi_colors = ['#1d1d14', '#864044', '#5e876e', '#c67e6b', '#6086b7', '#8365b3', '#8aa2c0', '#d1d1c6', '#89896b', '#9c4247', '#629c78', '#d18b78', '#6c92c4', '#8f70c0', '#96aecc', '#deded2']
   endif
 endif
 

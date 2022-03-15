@@ -19,10 +19,10 @@ function! s:build_palette() abort
     let col_error    = ['#0e0e0b', '#864044', 234, 203]
     let col_gradient = ['#89896b', '#323226', 242, 236]
     let col_nc       = ['#474737', '#050504', 238, 233]
-    let col_warning  = ['#0e0e0b', '#f17f5f', 234, 216]
+    let col_warning  = ['#0e0e0b', '#c67e6b', 234, 216]
     let col_insert   = ['#0e0e0b', '#6086b7', 234, 110]
-    let col_replace  = ['#0e0e0b', '#f17f5f', 234, 216]
-    let col_visual   = ['#0e0e0b', '#4faf75', 234, 150]
+    let col_replace  = ['#0e0e0b', '#c67e6b', 234, 216]
+    let col_visual   = ['#0e0e0b', '#5e876e', 234, 150]
     let col_red      = ['#864044', '#0e0e0b', 203, 234]
   endif
 
