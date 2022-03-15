@@ -1,7 +1,6 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-
 function! s:build_palette() abort
   if &background == 'light'
     let col_base     = {{light_col_base}}
