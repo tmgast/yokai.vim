@@ -1,4 +1,4 @@
-function! iceberg#palette#dark#create() abort
+function! yokai#palette#dark#create() abort
   let hue_base = 47
 
   let hue_red = 357
