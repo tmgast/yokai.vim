@@ -1,11 +1,9 @@
 " _________________________________________
-" \_ _/ ____| ____| ___ \ ____| ___ \  ___/
-"  | | |____| ____| ___ < ____| __  / |__ \
-" /___\_____|_____|_____/_____|_| \_\_____/
+" YOKAI
 "
 " File:       yokai.vim
 " Maintainer: cocopon <cocopon@me.com>
-" Modified:   2022-03-15 07:44+0900
+" Modified:   2022-03-15 21:20+0900
 " License:    MIT
 
 
@@ -75,7 +73,7 @@ if &background == 'light'
   hi StatusLineNC cterm=reverse ctermbg=244 ctermfg=251 gui=reverse guibg=#8b98b6 guifg=#cad0de
   hi StatusLineTermNC cterm=reverse ctermbg=244 ctermfg=251 gui=reverse guibg=#8b98b6 guifg=#cad0de
   hi StorageClass ctermfg=25 guifg=#2d539e
-  hi String ctermfg=31 guifg=#3f83a6
+  hi String ctermfg=64 guifg=#668e3d
   hi Structure ctermfg=25 guifg=#2d539e
   hi TabLine cterm=NONE ctermbg=251 ctermfg=244 gui=NONE guibg=#cad0de guifg=#8b98b6
   hi TabLineFill cterm=reverse ctermbg=244 ctermfg=251 gui=reverse guibg=#8b98b6 guifg=#cad0de
@@ -89,7 +87,7 @@ if &background == 'light'
   hi Visual ctermbg=251 ctermfg=NONE guibg=#c9cdd7 guifg=NONE
   hi VisualNOS ctermbg=251 ctermfg=NONE guibg=#c9cdd7 guifg=NONE
   hi WildMenu ctermbg=235 ctermfg=252 guibg=#32364c guifg=#e8e9ec
-  hi icebergNormalFg ctermfg=237 guifg=#33374c
+  hi yokaiNormalFg ctermfg=237 guifg=#33374c
   hi diffAdded ctermfg=64 guifg=#668e3d
   hi diffRemoved ctermfg=125 guifg=#cc517a
   hi ALEErrorSign ctermbg=253 ctermfg=125 guibg=#dcdfe7 guifg=#cc517a
@@ -132,7 +130,7 @@ if &background == 'light'
   hi DiagnosticError ctermfg=125 guifg=#cc517a
   hi DiagnosticSignError ctermbg=253 ctermfg=125 guibg=#dcdfe7 guifg=#cc517a
   hi DiagnosticFloatingHint ctermbg=251 ctermfg=237 guibg=#cad0de guifg=#33374c
-  hi icebergALAccentRed ctermfg=125 guifg=#cc517a
+  hi yokaiALAccentRed ctermfg=125 guifg=#cc517a
 
   if has('nvim')
     let g:terminal_color_0 = '#dcdfe7'
@@ -155,138 +153,138 @@ if &background == 'light'
     let g:terminal_ansi_colors = ['#dcdfe7', '#cc517a', '#668e3d', '#c57339', '#2d539e', '#7759b4', '#3f83a6', '#33374c', '#8389a3', '#cc3768', '#598030', '#b6662d', '#22478e', '#6845ad', '#327698', '#262a3f']
   endif
 else
-  hi Normal ctermbg=234 ctermfg=252 guibg=#0d0d0b guifg=#d1cfc6
-  hi ColorColumn cterm=NONE ctermbg=235 ctermfg=NONE guibg=#1c1c15 guifg=NONE
-  hi CursorColumn cterm=NONE ctermbg=235 ctermfg=NONE guibg=#1c1c15 guifg=NONE
-  hi CursorLine cterm=NONE ctermbg=235 ctermfg=NONE guibg=#1c1c15 guifg=NONE
-  hi Comment ctermfg=242 guifg=#89826b
-  hi Conceal ctermbg=234 ctermfg=242 guibg=#0d0d0b guifg=#89826b
+  hi Normal ctermbg=234 ctermfg=252 guibg=#0e0e0b guifg=#d1d1c6
+  hi ColorColumn cterm=NONE ctermbg=235 ctermfg=NONE guibg=#1d1d14 guifg=NONE
+  hi CursorColumn cterm=NONE ctermbg=235 ctermfg=NONE guibg=#1d1d14 guifg=NONE
+  hi CursorLine cterm=NONE ctermbg=235 ctermfg=NONE guibg=#1d1d14 guifg=NONE
+  hi Comment ctermfg=242 guifg=#89896b
+  hi Conceal ctermbg=234 ctermfg=242 guibg=#0e0e0b guifg=#89896b
   hi Constant ctermfg=140 guifg=#9e87c4
-  hi Cursor ctermbg=252 ctermfg=234 guibg=#d1cfc6 guifg=#0d0d0b
-  hi CursorLineNr cterm=NONE ctermbg=237 ctermfg=253 guibg=#3e3e25 guifg=#d7d7bd
-  hi Delimiter ctermfg=252 guifg=#d1cfc6
-  hi DiffAdd ctermbg=29 ctermfg=158 guibg=#223e2c guifg=#acc6af
-  hi DiffChange ctermbg=23 ctermfg=159 guibg=#3c4147 guifg=#c5c9ca
-  hi DiffDelete cterm=NONE ctermbg=95 ctermfg=224 gui=NONE guibg=#512526 guifg=#daada9
-  hi DiffText cterm=NONE ctermbg=30 ctermfg=195 gui=NONE guibg=#6b7683 guifg=#d1cfc6
-  hi Directory ctermfg=109 guifg=#aabcd4
-  hi Error ctermbg=234 ctermfg=203 guibg=#0d0d0b guifg=#f06067
-  hi ErrorMsg ctermbg=234 ctermfg=203 guibg=#0d0d0b guifg=#f06067
-  hi WarningMsg ctermbg=234 ctermfg=203 guibg=#0d0d0b guifg=#f06067
-  hi EndOfBuffer ctermfg=236 guifg=#28281d
-  hi NonText ctermfg=236 guifg=#28281d
-  hi Whitespace ctermfg=236 guifg=#28281d
-  hi Folded ctermbg=235 ctermfg=245 guibg=#1c1c15 guifg=#7c7c67
-  hi FoldColumn ctermbg=235 ctermfg=239 guibg=#1c1c15 guifg=#565640
-  hi Function ctermfg=110 guifg=#82a0c9
-  hi Identifier cterm=NONE ctermfg=109 guifg=#aabcd4
+  hi Cursor ctermbg=252 ctermfg=234 guibg=#d1d1c6 guifg=#0e0e0b
+  hi CursorLineNr cterm=NONE ctermbg=237 ctermfg=253 guibg=#404023 guifg=#d9d9bb
+  hi Delimiter ctermfg=252 guifg=#d1d1c6
+  hi DiffAdd ctermbg=29 ctermfg=158 guibg=#213e2a guifg=#a9c6ad
+  hi DiffChange ctermbg=23 ctermfg=159 guibg=#3d4246 guifg=#c5cac9
+  hi DiffDelete cterm=NONE ctermbg=95 ctermfg=224 gui=NONE guibg=#311d1c guifg=#baa59f
+  hi DiffText cterm=NONE ctermbg=30 ctermfg=195 gui=NONE guibg=#6c7682 guifg=#d1d1c6
+  hi Directory ctermfg=109 guifg=#acbcd2
+  hi Error ctermbg=234 ctermfg=203 guibg=#0e0e0b guifg=#864044
+  hi ErrorMsg ctermbg=234 ctermfg=203 guibg=#0e0e0b guifg=#864044
+  hi WarningMsg ctermbg=234 ctermfg=203 guibg=#0e0e0b guifg=#864044
+  hi EndOfBuffer ctermfg=236 guifg=#2a2a1c
+  hi NonText ctermfg=236 guifg=#2a2a1c
+  hi Whitespace ctermfg=236 guifg=#2a2a1c
+  hi Folded ctermbg=235 ctermfg=245 guibg=#1d1d14 guifg=#808062
+  hi FoldColumn ctermbg=235 ctermfg=239 guibg=#1d1d14 guifg=#59593d
+  hi Function ctermfg=110 guifg=#6086b7
+  hi Identifier cterm=NONE ctermfg=109 guifg=#acbcd2
   hi Ignore ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
-  hi Include ctermfg=110 guifg=#82a0c9
+  hi Include ctermfg=110 guifg=#6086b7
   hi IncSearch cterm=reverse ctermfg=NONE gui=reverse guifg=NONE term=reverse
-  hi LineNr ctermbg=235 ctermfg=239 guibg=#1c1c15 guifg=#565640
-  hi MatchParen ctermbg=237 ctermfg=255 guibg=#444439 guifg=#ffffff
-  hi ModeMsg ctermfg=242 guifg=#89826b
-  hi MoreMsg ctermfg=150 guifg=#56b37b
-  hi Operator ctermfg=110 guifg=#82a0c9
-  hi Pmenu ctermbg=236 ctermfg=251 guibg=#5b553d guifg=#d1cfc6
-  hi PmenuSbar ctermbg=236 ctermfg=NONE guibg=#5b553d guifg=NONE
-  hi PmenuSel ctermbg=240 ctermfg=255 guibg=#897f5b guifg=#f4f3ef
-  hi PmenuThumb ctermbg=251 ctermfg=NONE guibg=#d1cfc6 guifg=NONE
-  hi PreProc ctermfg=150 guifg=#56b37b
-  hi Question ctermfg=150 guifg=#56b37b
-  hi QuickFixLine ctermbg=236 ctermfg=252 guibg=#2a2a20 guifg=#d1cfc6
+  hi LineNr ctermbg=235 ctermfg=239 guibg=#1d1d14 guifg=#59593d
+  hi MatchParen ctermbg=237 ctermfg=255 guibg=#474737 guifg=#ffffff
+  hi ModeMsg ctermfg=242 guifg=#89896b
+  hi MoreMsg ctermfg=150 guifg=#4faf75
+  hi Operator ctermfg=110 guifg=#6086b7
+  hi Pmenu ctermbg=236 ctermfg=251 guibg=#5b5b3d guifg=#d1d1c6
+  hi PmenuSbar ctermbg=236 ctermfg=NONE guibg=#5b5b3d guifg=NONE
+  hi PmenuSel ctermbg=240 ctermfg=255 guibg=#89895b guifg=#f4f4ef
+  hi PmenuThumb ctermbg=251 ctermfg=NONE guibg=#d1d1c6 guifg=NONE
+  hi PreProc ctermfg=150 guifg=#4faf75
+  hi Question ctermfg=150 guifg=#4faf75
+  hi QuickFixLine ctermbg=236 ctermfg=252 guibg=#2c2c1f guifg=#d1d1c6
   hi Search ctermbg=216 ctermfg=234 guibg=#e49680 guifg=#391b13
-  hi SignColumn ctermbg=235 ctermfg=239 guibg=#1c1c15 guifg=#565640
-  hi Special ctermfg=150 guifg=#56b37b
-  hi SpecialKey ctermfg=240 guifg=#777752
-  hi SpellBad ctermbg=95 ctermfg=252 gui=undercurl guifg=NONE guisp=#f06067
-  hi SpellCap ctermbg=24 ctermfg=252 gui=undercurl guifg=NONE guisp=#82a0c9
-  hi SpellLocal ctermbg=23 ctermfg=252 gui=undercurl guifg=NONE guisp=#aabcd4
+  hi SignColumn ctermbg=235 ctermfg=239 guibg=#1d1d14 guifg=#59593d
+  hi Special ctermfg=150 guifg=#4faf75
+  hi SpecialKey ctermfg=240 guifg=#7c7c4f
+  hi SpellBad ctermbg=95 ctermfg=252 gui=undercurl guifg=NONE guisp=#864044
+  hi SpellCap ctermbg=24 ctermfg=252 gui=undercurl guifg=NONE guisp=#6086b7
+  hi SpellLocal ctermbg=23 ctermfg=252 gui=undercurl guifg=NONE guisp=#acbcd2
   hi SpellRare ctermbg=97 ctermfg=252 gui=undercurl guifg=NONE guisp=#9e87c4
-  hi Statement ctermfg=110 gui=NONE guifg=#82a0c9
-  hi StatusLine cterm=reverse ctermbg=234 ctermfg=245 gui=reverse guibg=#1b1a17 guifg=#969281 term=reverse
-  hi StatusLineTerm cterm=reverse ctermbg=234 ctermfg=245 gui=reverse guibg=#1b1a17 guifg=#969281 term=reverse
-  hi StatusLineNC cterm=reverse ctermbg=238 ctermfg=233 gui=reverse guibg=#444439 guifg=#040403
-  hi StatusLineTermNC cterm=reverse ctermbg=238 ctermfg=233 gui=reverse guibg=#444439 guifg=#040403
-  hi StorageClass ctermfg=110 guifg=#82a0c9
-  hi String ctermfg=109 guifg=#aabcd4
-  hi Structure ctermfg=110 guifg=#82a0c9
-  hi TabLine cterm=NONE ctermbg=233 ctermfg=238 gui=NONE guibg=#040403 guifg=#444439
-  hi TabLineFill cterm=reverse ctermbg=238 ctermfg=233 gui=reverse guibg=#444439 guifg=#040403
-  hi TabLineSel cterm=NONE ctermbg=white ctermfg=black gui=NONE guibg=#ffffff guifg=#000000
-  hi TermCursorNC ctermbg=242 ctermfg=234 guibg=#89826b guifg=#0d0d0b
+  hi Statement ctermfg=110 gui=NONE guifg=#6086b7
+  hi StatusLine cterm=reverse ctermbg=234 ctermfg=245 gui=reverse guibg=#1b1b17 guifg=#969681 term=reverse
+  hi StatusLineTerm cterm=reverse ctermbg=234 ctermfg=245 gui=reverse guibg=#1b1b17 guifg=#969681 term=reverse
+  hi StatusLineNC cterm=reverse ctermbg=238 ctermfg=233 gui=reverse guibg=#474737 guifg=#050504
+  hi StatusLineTermNC cterm=reverse ctermbg=238 ctermfg=233 gui=reverse guibg=#474737 guifg=#050504
+  hi StorageClass ctermfg=110 guifg=#6086b7
+  hi String ctermfg=150 guifg=#4faf75
+  hi Structure ctermfg=110 guifg=#6086b7
+  hi TabLine cterm=NONE ctermbg=233 ctermfg=238 gui=NONE guibg=#050504 guifg=#474737
+  hi TabLineFill cterm=reverse ctermbg=238 ctermfg=233 gui=reverse guibg=#474737 guifg=#050504
+  hi TabLineSel cterm=NONE ctermbg=234 ctermfg=252 gui=NONE guibg=#0e0e0b guifg=#a0a097
+  hi TermCursorNC ctermbg=242 ctermfg=234 guibg=#89896b guifg=#0e0e0b
   hi Title ctermfg=216 gui=NONE guifg=#f17f5f
-  hi Todo ctermbg=234 ctermfg=150 guibg=#223e2c guifg=#56b37b
-  hi Type ctermfg=110 gui=NONE guifg=#82a0c9
-  hi Underlined cterm=underline ctermfg=110 gui=underline guifg=#82a0c9 term=underline
-  hi VertSplit cterm=NONE ctermbg=233 ctermfg=233 gui=NONE guibg=#040403 guifg=#040403
-  hi Visual ctermbg=236 ctermfg=NONE guibg=#2a2a20 guifg=NONE
-  hi VisualNOS ctermbg=236 ctermfg=NONE guibg=#2a2a20 guifg=NONE
-  hi WildMenu ctermbg=255 ctermfg=234 guibg=#dbdad4 guifg=#1b1a17
-  hi icebergNormalFg ctermfg=252 guifg=#d1cfc6
-  hi diffAdded ctermfg=150 guifg=#56b37b
-  hi diffRemoved ctermfg=203 guifg=#f06067
-  hi ALEErrorSign ctermbg=235 ctermfg=203 guibg=#1c1c15 guifg=#f06067
-  hi ALEWarningSign ctermbg=235 ctermfg=216 guibg=#1c1c15 guifg=#f17f5f
-  hi ALEVirtualTextError ctermfg=203 guifg=#f06067
+  hi Todo ctermbg=234 ctermfg=150 guibg=#213e2a guifg=#4faf75
+  hi Type ctermfg=110 gui=NONE guifg=#6086b7
+  hi Underlined cterm=underline ctermfg=110 gui=underline guifg=#6086b7 term=underline
+  hi VertSplit cterm=NONE ctermbg=233 ctermfg=233 gui=NONE guibg=#050504 guifg=#050504
+  hi Visual ctermbg=236 ctermfg=NONE guibg=#2c2c1f guifg=NONE
+  hi VisualNOS ctermbg=236 ctermfg=NONE guibg=#2c2c1f guifg=NONE
+  hi WildMenu ctermbg=255 ctermfg=234 guibg=#dbdbd4 guifg=#1b1b17
+  hi yokaiNormalFg ctermfg=252 guifg=#d1d1c6
+  hi diffAdded ctermfg=150 guifg=#4faf75
+  hi diffRemoved ctermfg=203 guifg=#864044
+  hi ALEErrorSign ctermbg=235 ctermfg=203 guibg=#1d1d14 guifg=#864044
+  hi ALEWarningSign ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#f17f5f
+  hi ALEVirtualTextError ctermfg=203 guifg=#864044
   hi ALEVirtualTextWarning ctermfg=216 guifg=#f17f5f
-  hi CtrlPMode1 ctermbg=236 ctermfg=242 guibg=#312f25 guifg=#89826b
-  hi EasyMotionShade ctermfg=239 guifg=#5b553d
-  hi EasyMotionTarget ctermfg=150 guifg=#56b37b
+  hi CtrlPMode1 ctermbg=236 ctermfg=242 guibg=#323226 guifg=#89896b
+  hi EasyMotionShade ctermfg=239 guifg=#5b5b3d
+  hi EasyMotionTarget ctermfg=150 guifg=#4faf75
   hi EasyMotionTarget2First ctermfg=216 guifg=#f17f5f
   hi EasyMotionTarget2Second ctermfg=216 guifg=#f17f5f
-  hi GitGutterAdd ctermbg=235 ctermfg=150 guibg=#1c1c15 guifg=#56b37b
-  hi GitGutterChange ctermbg=235 ctermfg=109 guibg=#1c1c15 guifg=#aabcd4
-  hi GitGutterChangeDelete ctermbg=235 ctermfg=109 guibg=#1c1c15 guifg=#aabcd4
-  hi GitGutterDelete ctermbg=235 ctermfg=203 guibg=#1c1c15 guifg=#f06067
-  hi gitmessengerEndOfBuffer ctermbg=235 ctermfg=239 guibg=#1c1c15 guifg=#565640
-  hi gitmessengerPopupNormal ctermbg=235 ctermfg=252 guibg=#1c1c15 guifg=#d1cfc6
-  hi Sneak ctermbg=140 ctermfg=234 guibg=#9e87c4 guifg=#0d0d0b
-  hi SneakScope ctermbg=236 ctermfg=242 guibg=#2a2a20 guifg=#89826b
-  hi SyntasticErrorSign ctermbg=235 ctermfg=203 guibg=#1c1c15 guifg=#f06067
-  hi SyntasticStyleErrorSign ctermbg=235 ctermfg=203 guibg=#1c1c15 guifg=#f06067
-  hi SyntasticStyleWarningSign ctermbg=235 ctermfg=216 guibg=#1c1c15 guifg=#f17f5f
-  hi SyntasticWarningSign ctermbg=235 ctermfg=216 guibg=#1c1c15 guifg=#f17f5f
+  hi GitGutterAdd ctermbg=235 ctermfg=150 guibg=#1d1d14 guifg=#4faf75
+  hi GitGutterChange ctermbg=235 ctermfg=109 guibg=#1d1d14 guifg=#acbcd2
+  hi GitGutterChangeDelete ctermbg=235 ctermfg=109 guibg=#1d1d14 guifg=#acbcd2
+  hi GitGutterDelete ctermbg=235 ctermfg=203 guibg=#1d1d14 guifg=#864044
+  hi gitmessengerEndOfBuffer ctermbg=235 ctermfg=239 guibg=#1d1d14 guifg=#59593d
+  hi gitmessengerPopupNormal ctermbg=235 ctermfg=252 guibg=#1d1d14 guifg=#d1d1c6
+  hi Sneak ctermbg=140 ctermfg=234 guibg=#9e87c4 guifg=#0e0e0b
+  hi SneakScope ctermbg=236 ctermfg=242 guibg=#2c2c1f guifg=#89896b
+  hi SyntasticErrorSign ctermbg=235 ctermfg=203 guibg=#1d1d14 guifg=#864044
+  hi SyntasticStyleErrorSign ctermbg=235 ctermfg=203 guibg=#1d1d14 guifg=#864044
+  hi SyntasticStyleWarningSign ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#f17f5f
+  hi SyntasticWarningSign ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#f17f5f
   hi TSFunction ctermfg=252 guifg=#bdb8ac
   hi TSFunctionBuiltin ctermfg=252 guifg=#bdb8ac
   hi TSFunctionMacro ctermfg=252 guifg=#bdb8ac
   hi TSMethod ctermfg=252 guifg=#bdb8ac
-  hi TSURI cterm=underline ctermfg=109 gui=underline guifg=#aabcd4 term=underline
-  hi ZenSpace ctermbg=203 guibg=#f06067
-  hi DiagnosticUnderlineInfo cterm=underline ctermfg=109 gui=underline guisp=#aabcd4 term=underline
-  hi DiagnosticInfo ctermfg=109 guifg=#aabcd4
-  hi DiagnosticSignInfo ctermbg=235 ctermfg=109 guibg=#1c1c15 guifg=#aabcd4
-  hi DiagnosticUnderlineHint cterm=underline ctermfg=242 gui=underline guisp=#89826b term=underline
-  hi DiagnosticHint ctermfg=242 guifg=#89826b
-  hi DiagnosticSignHint ctermbg=235 ctermfg=242 guibg=#1c1c15 guifg=#89826b
+  hi TSURI cterm=underline ctermfg=109 gui=underline guifg=#acbcd2 term=underline
+  hi ZenSpace ctermbg=203 guibg=#864044
+  hi DiagnosticUnderlineInfo cterm=underline ctermfg=109 gui=underline guisp=#acbcd2 term=underline
+  hi DiagnosticInfo ctermfg=109 guifg=#acbcd2
+  hi DiagnosticSignInfo ctermbg=235 ctermfg=109 guibg=#1d1d14 guifg=#acbcd2
+  hi DiagnosticUnderlineHint cterm=underline ctermfg=242 gui=underline guisp=#89896b term=underline
+  hi DiagnosticHint ctermfg=242 guifg=#89896b
+  hi DiagnosticSignHint ctermbg=235 ctermfg=242 guibg=#1d1d14 guifg=#89896b
   hi DiagnosticUnderlineWarn cterm=underline ctermfg=216 gui=underline guisp=#f17f5f term=underline
   hi DiagnosticWarn ctermfg=216 guifg=#f17f5f
-  hi DiagnosticSignWarn ctermbg=235 ctermfg=216 guibg=#1c1c15 guifg=#f17f5f
-  hi DiagnosticUnderlineError cterm=underline ctermfg=203 gui=underline guisp=#f06067 term=underline
-  hi DiagnosticError ctermfg=203 guifg=#f06067
-  hi DiagnosticSignError ctermbg=235 ctermfg=203 guibg=#1c1c15 guifg=#f06067
-  hi DiagnosticFloatingHint ctermbg=236 ctermfg=251 guibg=#5b553d guifg=#d1cfc6
-  hi icebergALAccentRed ctermfg=203 guifg=#f06067
+  hi DiagnosticSignWarn ctermbg=235 ctermfg=216 guibg=#1d1d14 guifg=#f17f5f
+  hi DiagnosticUnderlineError cterm=underline ctermfg=203 gui=underline guisp=#864044 term=underline
+  hi DiagnosticError ctermfg=203 guifg=#864044
+  hi DiagnosticSignError ctermbg=235 ctermfg=203 guibg=#1d1d14 guifg=#864044
+  hi DiagnosticFloatingHint ctermbg=236 ctermfg=251 guibg=#5b5b3d guifg=#d1d1c6
+  hi yokaiALAccentRed ctermfg=203 guifg=#864044
 
   if has('nvim')
-    let g:terminal_color_0 = '#1c1c15'
-    let g:terminal_color_1 = '#f06067'
-    let g:terminal_color_2 = '#56b37b'
+    let g:terminal_color_0 = '#1d1d14'
+    let g:terminal_color_1 = '#864044'
+    let g:terminal_color_2 = '#4faf75'
     let g:terminal_color_3 = '#f17f5f'
-    let g:terminal_color_4 = '#82a0c9'
+    let g:terminal_color_4 = '#6086b7'
     let g:terminal_color_5 = '#9e87c4'
-    let g:terminal_color_6 = '#aabcd4'
-    let g:terminal_color_7 = '#d1cfc6'
-    let g:terminal_color_8 = '#89826b'
-    let g:terminal_color_9 = '#f57379'
-    let g:terminal_color_10 = '#62c087'
+    let g:terminal_color_6 = '#acbcd2'
+    let g:terminal_color_7 = '#d1d1c6'
+    let g:terminal_color_8 = '#89896b'
+    let g:terminal_color_9 = '#9c4247'
+    let g:terminal_color_10 = '#5abd81'
     let g:terminal_color_11 = '#f68f72'
-    let g:terminal_color_12 = '#8facd4'
+    let g:terminal_color_12 = '#6c92c4'
     let g:terminal_color_13 = '#aa94d0'
-    let g:terminal_color_14 = '#b8c8df'
-    let g:terminal_color_15 = '#dedcd2'
+    let g:terminal_color_14 = '#b9c8dd'
+    let g:terminal_color_15 = '#deded2'
   else
-    let g:terminal_ansi_colors = ['#1c1c15', '#f06067', '#56b37b', '#f17f5f', '#82a0c9', '#9e87c4', '#aabcd4', '#d1cfc6', '#89826b', '#f57379', '#62c087', '#f68f72', '#8facd4', '#aa94d0', '#b8c8df', '#dedcd2']
+    let g:terminal_ansi_colors = ['#1d1d14', '#864044', '#4faf75', '#f17f5f', '#6086b7', '#9e87c4', '#acbcd2', '#d1d1c6', '#89896b', '#9c4247', '#5abd81', '#f68f72', '#6c92c4', '#aa94d0', '#b9c8dd', '#deded2']
   endif
 endif
 
@@ -295,14 +293,14 @@ hi! link ToolbarButton TabLineSel
 hi! link ToolbarLine TabLineFill
 hi! link cssBraces Delimiter
 hi! link cssClassName Special
-hi! link cssClassNameDot icebergNormalFg
+hi! link cssClassNameDot yokaiNormalFg
 hi! link cssPseudoClassId Special
 hi! link cssTagName Statement
 hi! link helpHyperTextJump Constant
 hi! link htmlArg Constant
 hi! link htmlEndTag Statement
 hi! link htmlTag Statement
-hi! link jsonQuote icebergNormalFg
+hi! link jsonQuote yokaiNormalFg
 hi! link phpVarSelector Identifier
 hi! link pythonFunction Title
 hi! link rubyDefine Statement
@@ -310,21 +308,21 @@ hi! link rubyFunction Title
 hi! link rubyInterpolationDelimiter String
 hi! link rubySharpBang Comment
 hi! link rubyStringDelimiter String
-hi! link rustFuncCall icebergNormalFg
+hi! link rustFuncCall yokaiNormalFg
 hi! link rustFuncName Title
 hi! link rustType Constant
 hi! link sassClass Special
-hi! link shFunction icebergNormalFg
+hi! link shFunction yokaiNormalFg
 hi! link vimContinue Comment
 hi! link vimFuncSID vimFunction
-hi! link vimFuncVar icebergNormalFg
+hi! link vimFuncVar yokaiNormalFg
 hi! link vimFunction Title
 hi! link vimGroup Statement
 hi! link vimHiGroup Statement
 hi! link vimHiTerm Identifier
 hi! link vimMapModKey Special
 hi! link vimOption Identifier
-hi! link vimVar icebergNormalFg
+hi! link vimVar yokaiNormalFg
 hi! link xmlAttrib Constant
 hi! link xmlAttribPunct Statement
 hi! link xmlEndTag Statement
@@ -335,7 +333,7 @@ hi! link yamlKeyValueDelimiter Delimiter
 hi! link CtrlPPrtCursor Cursor
 hi! link CtrlPMatch Title
 hi! link CtrlPMode2 StatusLine
-hi! link deniteMatched icebergNormalFg
+hi! link deniteMatched yokaiNormalFg
 hi! link deniteMatchedChar Title
 hi! link elixirBlockDefinition Statement
 hi! link elixirDefine Statement
@@ -345,25 +343,25 @@ hi! link elixirExUnitMacro Statement
 hi! link elixirExceptionDefine Statement
 hi! link elixirFunctionDeclaration Title
 hi! link elixirKeyword Statement
-hi! link elixirModuleDeclaration icebergNormalFg
+hi! link elixirModuleDeclaration yokaiNormalFg
 hi! link elixirModuleDefine Statement
 hi! link elixirPrivateDefine Statement
 hi! link elixirStringDelimiter String
-hi! link jsFlowMaybe icebergNormalFg
-hi! link jsFlowObject icebergNormalFg
+hi! link jsFlowMaybe yokaiNormalFg
+hi! link jsFlowObject yokaiNormalFg
 hi! link jsFlowType PreProc
-hi! link graphqlName icebergNormalFg
-hi! link graphqlOperator icebergNormalFg
+hi! link graphqlName yokaiNormalFg
+hi! link graphqlOperator yokaiNormalFg
 hi! link gitmessengerHash Comment
 hi! link gitmessengerHeader Statement
 hi! link gitmessengerHistory Constant
 hi! link jsArrowFunction Operator
-hi! link jsClassDefinition icebergNormalFg
+hi! link jsClassDefinition yokaiNormalFg
 hi! link jsClassFuncName Title
 hi! link jsExport Statement
 hi! link jsFuncName Title
 hi! link jsFutureKeys Statement
-hi! link jsFuncCall icebergNormalFg
+hi! link jsFuncCall yokaiNormalFg
 hi! link jsGlobalObjects Statement
 hi! link jsModuleKeywords Statement
 hi! link jsModuleOperators Statement
@@ -379,7 +377,7 @@ hi! link markdownCodeDelimiter String
 hi! link markdownHeadingDelimiter Comment
 hi! link markdownRule Comment
 hi! link ngxDirective Statement
-hi! link plug1 icebergNormalFg
+hi! link plug1 yokaiNormalFg
 hi! link plug2 Identifier
 hi! link plugDash Comment
 hi! link plugMessage Special
@@ -396,21 +394,21 @@ hi! link StartifyNumber Special
 hi! link StartifyPath Comment
 hi! link StartifySection Statement
 hi! link StartifySlash Comment
-hi! link StartifySpecial icebergNormalFg
+hi! link StartifySpecial yokaiNormalFg
 hi! link svssBraces Delimiter
-hi! link swiftIdentifier icebergNormalFg
+hi! link swiftIdentifier yokaiNormalFg
 hi! link TSAttribute Special
 hi! link TSBoolean Constant
 hi! link TSCharacter Constant
 hi! link TSComment Comment
-hi! link TSConstructor icebergNormalFg
+hi! link TSConstructor yokaiNormalFg
 hi! link TSConditional Statement
 hi! link TSConstant Constant
 hi! link TSConstBuiltin Constant
 hi! link TSConstMacro Constant
 hi! link TSError Error
 hi! link TSException Statement
-hi! link TSField icebergNormalFg
+hi! link TSField yokaiNormalFg
 hi! link TSFloat Constant
 hi! link TSInclude Statement
 hi! link TSKeyword Statement
@@ -418,12 +416,12 @@ hi! link TSKeywordFunction Function
 hi! link TSLabel Special
 hi! link TSNamespace Statement
 hi! link TSNumber Constant
-hi! link TSOperator icebergNormalFg
-hi! link TSParameter icebergNormalFg
-hi! link TSParameterReference icebergNormalFg
+hi! link TSOperator yokaiNormalFg
+hi! link TSParameter yokaiNormalFg
+hi! link TSParameterReference yokaiNormalFg
 hi! link TSProperty TSField
-hi! link TSPunctDelimiter icebergNormalFg
-hi! link TSPunctBracket icebergNormalFg
+hi! link TSPunctDelimiter yokaiNormalFg
+hi! link TSPunctBracket yokaiNormalFg
 hi! link TSPunctSpecial Special
 hi! link TSRepeat Statement
 hi! link TSString String
@@ -431,22 +429,22 @@ hi! link TSStringRegex String
 hi! link TSStringEscape Special
 hi! link TSTag htmlTagName
 hi! link TSTagDelimiter htmlTagName
-hi! link TSText icebergNormalFg
+hi! link TSText yokaiNormalFg
 hi! link TSTitle Title
 hi! link TSType Type
 hi! link TSTypeBuiltin Type
-hi! link TSVariable icebergNormalFg
+hi! link TSVariable yokaiNormalFg
 hi! link TSVariableBuiltin Statement
-hi! link typescriptAjaxMethods icebergNormalFg
-hi! link typescriptBraces icebergNormalFg
-hi! link typescriptEndColons icebergNormalFg
+hi! link typescriptAjaxMethods yokaiNormalFg
+hi! link typescriptBraces yokaiNormalFg
+hi! link typescriptEndColons yokaiNormalFg
 hi! link typescriptFuncKeyword Statement
 hi! link typescriptGlobalObjects Statement
-hi! link typescriptHtmlElemProperties icebergNormalFg
+hi! link typescriptHtmlElemProperties yokaiNormalFg
 hi! link typescriptIdentifier Statement
-hi! link typescriptMessage icebergNormalFg
+hi! link typescriptMessage yokaiNormalFg
 hi! link typescriptNull Constant
-hi! link typescriptParens icebergNormalFg
+hi! link typescriptParens yokaiNormalFg
 
 if !has('nvim')
   hi! link SpecialKey Whitespace

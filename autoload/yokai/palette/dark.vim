@@ -1,5 +1,5 @@
 function! yokai#palette#dark#create() abort
-  let hue_base = 47
+  let hue_base = 60
 
   let hue_red = 357
   let hue_orange = 13
@@ -13,17 +13,17 @@ function! yokai#palette#dark#create() abort
   let g = {}
 
   " palette
-  let g.blue   = pgmnt#color#hsl(hue_blue,   0.40, 0.65)
-  let g.green  = pgmnt#color#hsl(hue_green,  0.38, 0.52)
-  let g.lblue  = pgmnt#color#hsl(hue_lblue,  0.33, 0.75)
+  let g.blue   = pgmnt#color#hsl(hue_blue,   0.38, 0.55)
+  let g.lblue  = pgmnt#color#hsl(hue_lblue,  0.30, 0.65)
+  let g.green  = pgmnt#color#hsl(hue_green,  0.38, 0.50)
   let g.orange = pgmnt#color#hsl(hue_orange, 0.84, 0.66)
   let g.purple = pgmnt#color#hsl(hue_purple, 0.34, 0.65)
-  let g.red    = pgmnt#color#hsl(hue_red,    0.83, 0.66)
+  let g.red    = pgmnt#color#hsl(hue_red,    0.35, 0.39)
   let g.pale   = pgmnt#color#hsl(hue_pale,   0.11, 0.71)
 
   " normal
-  let g.normal_bg = pgmnt#color#hsl(hue_base, 0.07, 0.05)
-  let g.normal_fg = pgmnt#color#hsl(hue_base, 0.11, 0.80)
+  let g.normal_bg = pgmnt#color#hsl(hue_base, 0.10, 0.05)
+  let g.normal_fg = pgmnt#color#hsl(hue_base, 0.10, 0.80)
 
   " tint
   let g.blue_tint_bg   = pgmnt#color#mix(g.blue, g.normal_bg, 0.30)
