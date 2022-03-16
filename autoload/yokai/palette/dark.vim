@@ -19,11 +19,11 @@ function! yokai#palette#dark#create() abort
   let g.orange = pgmnt#color#hsl(hue_orange, 0.45, 0.60)
   let g.purple = pgmnt#color#hsl(hue_purple, 0.34, 0.55)
   let g.red    = pgmnt#color#hsl(hue_red,    0.35, 0.39)
-  let g.pale   = pgmnt#color#hsl(hue_pale,   0.11, 0.71)
+  let g.pale   = pgmnt#color#hsl(hue_pale,   0.71, 0.71)
 
   " normal
   let g.normal_bg = pgmnt#color#hsl(hue_base, 0.10, 0.05)
-  let g.normal_fg = pgmnt#color#hsl(hue_base, 0.10, 0.80)
+  let g.normal_fg = pgmnt#color#hsl(hue_base, 0.30, 0.85)
 
   " tint
   let g.blue_tint_bg   = pgmnt#color#mix(g.blue, g.normal_bg, 0.30)

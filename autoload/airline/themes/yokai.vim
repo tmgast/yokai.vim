@@ -3,16 +3,16 @@ set cpo&vim
 
 function! s:build_palette() abort
   if &background == 'light'
-    let col_base     = ['#8b98b6', '#cad0de', 244, 251]
-    let col_edge     = ['#e8e9ec', '#757ca3', 252, 243]
-    let col_error    = ['#e8e9ec', '#cc517a', 254, 125]
-    let col_gradient = ['#e8e9ec', '#9fa6c0', 252, 247]
-    let col_nc       = ['#8b98b6', '#cad0de', 244, 251]
-    let col_warning  = ['#e8e9ec', '#c57339', 254, 130]
-    let col_insert   = ['#e8e9ec', '#2d539e', 254, 25]
-    let col_replace  = ['#e8e9ec', '#c57339', 254, 130]
-    let col_visual   = ['#e8e9ec', '#668e3d', 254, 64]
-    let col_red      = ['#cc517a', '#e8e9ec', 125, 254]
+    let col_base     = ['#afaf55', '#d0d09b', 244, 251]
+    let col_edge     = ['#d7d7c0', '#a3a375', 252, 243]
+    let col_error    = ['#d7d7c0', '#dc5a61', 254, 125]
+    let col_gradient = ['#d7d7c0', '#b9b988', 252, 247]
+    let col_nc       = ['#afaf55', '#d0d09b', 244, 251]
+    let col_warning  = ['#d7d7c0', '#9e462d', 254, 130]
+    let col_insert   = ['#d7d7c0', '#2468c0', 254, 25]
+    let col_replace  = ['#d7d7c0', '#9e462d', 254, 130]
+    let col_visual   = ['#d7d7c0', '#377b52', 254, 64]
+    let col_red      = ['#dc5a61', '#d7d7c0', 125, 254]
   else
     let col_base     = ['#474737', '#050504', 238, 233]
     let col_edge     = ['#1b1b17', '#969681', 234, 245]

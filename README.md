@@ -13,4 +13,8 @@ Vim-plug: `Plug 'tmgast/yokai.vim'`
 Vundle: `Plugin 'tmgast/yokai.vim'`
 
 
+------
 
+###### WIP
+
+This is currently being updated as I try out various colors and highlight assignments. Expect many changes.
