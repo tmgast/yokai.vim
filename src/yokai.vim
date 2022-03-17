@@ -72,10 +72,10 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'DiffChange', {
-        \   'ctermbg': c.lblue_tint_bg,
-        \   'ctermfg': c.lblue_tint_fg,
-        \   'guibg': g.lblue_tint_bg,
-        \   'guifg': g.lblue_tint_fg,
+        \   'ctermbg': c.lorange_tint_bg,
+        \   'ctermfg': c.lorange_tint_fg,
+        \   'guibg': g.lorange_tint_bg,
+        \   'guifg': g.lorange_tint_fg,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'DiffDelete', {
@@ -97,8 +97,8 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Directory', {
-        \   'ctermfg': c.lblue,
-        \   'guifg': g.lblue,
+        \   'ctermfg': c.lorange,
+        \   'guifg': g.lorange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ ['Error', 'ErrorMsg', 'WarningMsg'], {
@@ -128,14 +128,14 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Function', {
-        \   'ctermfg': c.blue,
-        \   'guifg': g.blue,
+        \   'ctermfg': c.orange,
+        \   'guifg': g.orange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Identifier', {
         \   'cterm': 'NONE',
-        \   'ctermfg': c.lblue,
-        \   'guifg': g.lblue,
+        \   'ctermfg': c.lorange,
+        \   'guifg': g.lorange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Ignore', {
@@ -146,8 +146,8 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Include', {
-        \   'ctermfg': c.blue,
-        \   'guifg': g.blue,
+        \   'ctermfg': c.orange,
+        \   'guifg': g.orange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'IncSearch', {
@@ -183,8 +183,8 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Operator', {
-        \   'ctermfg': c.blue,
-        \   'guifg': g.blue,
+        \   'ctermfg': c.lorange,
+        \   'guifg': g.lorange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Pmenu', {
@@ -265,19 +265,19 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'SpellCap', {
-        \   'ctermbg': c.blue_tint_bg,
+        \   'ctermbg': c.orange_tint_bg,
         \   'ctermfg': c.normal_fg,
         \   'gui': 'undercurl',
         \   'guifg': 'NONE',
-        \   'guisp': g.blue,
+        \   'guisp': g.orange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'SpellLocal', {
-        \   'ctermbg': c.lblue_tint_bg,
+        \   'ctermbg': c.lorange_tint_bg,
         \   'ctermfg': c.normal_fg,
         \   'gui': 'undercurl',
         \   'guifg': 'NONE',
-        \   'guisp': g.lblue,
+        \   'guisp': g.lorange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'SpellRare', {
@@ -289,9 +289,9 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Statement', {
-        \   'ctermfg': c.blue,
+        \   'ctermfg': c.orange,
         \   'gui': 'NONE',
-        \   'guifg': g.blue,
+        \   'guifg': g.orange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ ['StatusLine', 'StatusLineTerm'], {
@@ -314,8 +314,8 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'StorageClass', {
-        \     'ctermfg': c.blue,
-        \     'guifg': g.blue,
+        \     'ctermfg': c.orange,
+        \     'guifg': g.orange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'String', {
@@ -324,8 +324,8 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Structure', {
-        \   'ctermfg': c.blue,
-        \   'guifg': g.blue,
+        \   'ctermfg': c.orange,
+        \   'guifg': g.orange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'TabLine', {
@@ -363,9 +363,9 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Title', {
-        \   'ctermfg': c.orange,
+        \   'ctermfg': c.blue,
         \   'gui': 'NONE',
-        \   'guifg': g.orange,
+        \   'guifg': g.blue,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Todo', {
@@ -376,16 +376,16 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Type', {
-        \   'ctermfg': c.blue,
+        \   'ctermfg': c.orange,
         \   'gui': 'NONE',
-        \   'guifg': g.blue,
+        \   'guifg': g.orange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Underlined', {
         \   'cterm': 'underline',
-        \   'ctermfg': c.blue,
+        \   'ctermfg': c.orange,
         \   'gui': 'underline',
-        \   'guifg': g.blue,
+        \   'guifg': g.orange,
         \   'term': 'underline',
         \ }))
   call extend(rules, pgmnt#hi#group(
@@ -454,9 +454,9 @@ function! s:create_colors(palette) abort
   call extend(rules, pgmnt#hi#group(
         \ 'ALEWarningSign', {
         \   'ctermbg': c.linenr_bg,
-        \   'ctermfg': c.orange,
+        \   'ctermfg': c.blue,
         \   'guibg': g.linenr_bg,
-        \   'guifg': g.orange,
+        \   'guifg': g.blue,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'ALEVirtualTextError', {
@@ -465,8 +465,8 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'ALEVirtualTextWarning', {
-        \   'ctermfg': c.orange,
-        \   'guifg': g.orange,
+        \   'ctermfg': c.blue,
+        \   'guifg': g.blue,
         \ }))
 
   " [CtrlP](https://github.com/ctrlpvim/ctrlp.vim)
@@ -491,8 +491,8 @@ function! s:create_colors(palette) abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ ['EasyMotionTarget2First', 'EasyMotionTarget2Second'], {
-        \   'ctermfg': c.orange,
-        \   'guifg': g.orange,
+        \   'ctermfg': c.blue,
+        \   'guifg': g.blue,
         \ }))
 
   " [Git Gutter](https://github.com/airblade/vim-gitgutter)
@@ -506,9 +506,9 @@ function! s:create_colors(palette) abort
   call extend(rules, pgmnt#hi#group(
         \ ['GitGutterChange', 'GitGutterChangeDelete'], {
         \   'ctermbg': c.linenr_bg,
-        \   'ctermfg': c.lblue,
+        \   'ctermfg': c.lorange,
         \   'guibg': g.linenr_bg,
-        \   'guifg': g.lblue,
+        \   'guifg': g.lorange,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'GitGutterDelete', {
@@ -561,9 +561,9 @@ function! s:create_colors(palette) abort
   call extend(rules, pgmnt#hi#group(
         \ ['SyntasticStyleWarningSign', 'SyntasticWarningSign'], {
         \   'ctermbg': c.linenr_bg,
-        \   'ctermfg': c.orange,
+        \   'ctermfg': c.blue,
         \   'guibg': g.linenr_bg,
-        \   'guifg': g.orange,
+        \   'guifg': g.blue,
         \ }))
 
   " [Tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -580,9 +580,9 @@ function! s:create_colors(palette) abort
   call extend(rules, pgmnt#hi#group(
         \ ['TSURI'], {
         \   'cterm': 'underline',
-        \   'ctermfg': c.lblue,
+        \   'ctermfg': c.lorange,
         \   'gui': 'underline',
-        \   'guifg': g.lblue,
+        \   'guifg': g.lorange,
         \   'term': 'underline',
         \ }))
 
@@ -598,8 +598,8 @@ function! s:create_colors(palette) abort
   for [group, color] in items({
         \   'Error': 'red',
         \   'Hint': 'comment_fg',
-        \   'Info': 'lblue',
-        \   'Warn': 'orange',
+        \   'Info': 'purple',
+        \   'Warn': 'blue',
         \ })
     call extend(rules, pgmnt#hi#group(
           \ 'DiagnosticUnderline' . group, {
@@ -959,27 +959,27 @@ function! s:create_xline_context() abort
           \   ]),
           \   prefix . 'warning': string([
           \     g.normal_bg,
-          \     g.orange,
+          \     g.blue,
           \     c.normal_bg,
-          \     c.orange,
+          \     c.blue,
           \   ]),
           \   prefix . 'insert': string([
+          \     g.normal_bg,
+          \     g.purple,
+          \     c.normal_bg,
+          \     c.purple,
+          \   ]),
+          \   prefix . 'replace': string([
           \     g.normal_bg,
           \     g.blue,
           \     c.normal_bg,
           \     c.blue,
           \   ]),
-          \   prefix . 'replace': string([
+          \   prefix . 'visual': string([
           \     g.normal_bg,
           \     g.orange,
           \     c.normal_bg,
           \     c.orange,
-          \   ]),
-          \   prefix . 'visual': string([
-          \     g.normal_bg,
-          \     g.green,
-          \     c.normal_bg,
-          \     c.green,
           \   ]),
           \   prefix . 'red': string([
           \     g.red,

@@ -2,10 +2,10 @@ function! yokai#palette#dark#create() abort
   let hue_base = 60
 
   let hue_red = 357
-  let hue_orange = 13
-  let hue_green = 144
-  let hue_lblue = 214
   let hue_blue = 214
+  let hue_green = 150
+  let hue_lorange = 13
+  let hue_orange = 13
   let hue_purple = 263
   let hue_pale = 43
 
@@ -13,25 +13,25 @@ function! yokai#palette#dark#create() abort
   let g = {}
 
   " palette
-  let g.blue   = pgmnt#color#hsl(hue_blue,   0.38, 0.55)
-  let g.lblue  = pgmnt#color#hsl(hue_lblue,  0.30, 0.65)
-  let g.green  = pgmnt#color#hsl(hue_green,  0.18, 0.45)
-  let g.orange = pgmnt#color#hsl(hue_orange, 0.45, 0.60)
+  let g.orange   = pgmnt#color#hsl(hue_orange,   0.38, 0.50)
+  let g.lorange  = pgmnt#color#hsl(hue_lorange,  0.40, 0.68)
+  let g.green  = pgmnt#color#hsl(hue_green,  0.14, 0.56)
+  let g.blue = pgmnt#color#hsl(hue_blue, 0.38, 0.52)
   let g.purple = pgmnt#color#hsl(hue_purple, 0.34, 0.55)
   let g.red    = pgmnt#color#hsl(hue_red,    0.35, 0.39)
   let g.pale   = pgmnt#color#hsl(hue_pale,   0.71, 0.71)
 
   " normal
-  let g.normal_bg = pgmnt#color#hsl(hue_base, 0.10, 0.05)
-  let g.normal_fg = pgmnt#color#hsl(hue_base, 0.30, 0.85)
+  let g.normal_bg = pgmnt#color#hsl(hue_base, 0.11, 0.10)
+  let g.normal_fg = pgmnt#color#hsl(hue_base, 0.10, 0.85)
 
   " tint
-  let g.blue_tint_bg   = pgmnt#color#mix(g.blue, g.normal_bg, 0.30)
-  let g.blue_tint_fg   = pgmnt#color#mix(g.blue, g.normal_fg, 0.30)
+  let g.orange_tint_bg   = pgmnt#color#mix(g.orange, g.normal_bg, 0.30)
+  let g.orange_tint_fg   = pgmnt#color#mix(g.orange, g.normal_fg, 0.30)
   let g.green_tint_bg  = pgmnt#color#mix(g.green, g.normal_bg, 0.30)
   let g.green_tint_fg  = pgmnt#color#mix(g.green, g.normal_fg, 0.30)
-  let g.lblue_tint_bg  = pgmnt#color#mix(g.lblue, g.normal_bg, 0.30)
-  let g.lblue_tint_fg  = pgmnt#color#mix(g.lblue, g.normal_fg, 0.30)
+  let g.lorange_tint_bg  = pgmnt#color#mix(g.lorange, g.normal_bg, 0.30)
+  let g.lorange_tint_fg  = pgmnt#color#mix(g.lorange, g.normal_fg, 0.30)
   let g.purple_tint_bg = pgmnt#color#mix(g.purple, g.normal_bg, 0.30)
   let g.purple_tint_fg = pgmnt#color#mix(g.purple, g.normal_fg, 0.30)
   let g.red_tint_bg    = pgmnt#color#mix(g.red, g.normal_bg, 0.30)
@@ -56,7 +56,7 @@ function! yokai#palette#dark#create() abort
         \ })
 
   " diff
-  let g.difftext_bg = pgmnt#color#mix(g.lblue, g.normal_bg, 0.6)
+  let g.difftext_bg = pgmnt#color#mix(g.lorange, g.normal_bg, 0.6)
   let g.difftext_fg = g.normal_fg
 
   " statusline
@@ -66,13 +66,13 @@ function! yokai#palette#dark#create() abort
   let g.statuslinenc_fg = pgmnt#color#lighten(g.normal_bg, 0.20)
 
   " pmenu
-  let g.pmenu_bg = pgmnt#color#hsl(hue_base, 0.20, 0.30)
+  let g.pmenu_bg = pgmnt#color#hsl(hue_base, 0.15, 0.20)
   let g.pmenu_fg = g.normal_fg
-  let g.pmenusel_bg = pgmnt#color#hsl(hue_base, 0.20, 0.45)
+  let g.pmenusel_bg = pgmnt#color#hsl(hue_base, 0.15, 0.35)
   let g.pmenusel_fg = pgmnt#color#hsl(hue_base, 0.20, 0.95)
 
   " misc
-  let g.comment_fg = pgmnt#color#hsl(hue_base, 0.12, 0.48)
+  let g.comment_fg = pgmnt#color#hsl(hue_base, 0.10, 0.31)
   let g.cursorline_bg = g.linenr_bg
   let g.folded_bg = g.linenr_bg
   let g.folded_fg = pgmnt#color#adjust_color(
@@ -82,8 +82,8 @@ function! yokai#palette#dark#create() abort
         \ })
   let g.matchparen_bg = pgmnt#color#lighten(g.normal_bg, 0.20)
   let g.matchparen_fg = pgmnt#color#lighten(g.normal_fg, 0.50)
-  let g.search_bg = pgmnt#color#hsl(hue_orange, 0.65, 0.70)
-  let g.search_fg = pgmnt#color#hsl(hue_orange, 0.50, 0.15)
+  let g.search_bg = pgmnt#color#hsl(hue_blue, 0.65, 0.70)
+  let g.search_fg = pgmnt#color#hsl(hue_blue, 0.50, 0.15)
   let g.specialkey_fg = pgmnt#color#adjust_color(
         \ g.normal_bg, {
         \   'saturation': +0.10,
@@ -111,18 +111,18 @@ function! yokai#palette#dark#create() abort
         \   g.cursorline_bg,
         \   g.red,
         \   g.green,
-        \   g.orange,
         \   g.blue,
+        \   g.orange,
         \   g.purple,
-        \   g.lblue,
+        \   g.lorange,
         \   g.normal_fg,
         \   g.comment_fg,
         \   pgmnt#color#adjust_color(g.red,       {'saturation': +0.05, 'lightness': +0.05}),
         \   pgmnt#color#adjust_color(g.green,     {'saturation': +0.05, 'lightness': +0.05}),
-        \   pgmnt#color#adjust_color(g.orange,    {'saturation': +0.05, 'lightness': +0.05}),
-        \   pgmnt#color#adjust_color(g.blue,      {'saturation': +0.05, 'lightness': +0.05}),
+        \   pgmnt#color#adjust_color(g.blue,    {'saturation': +0.05, 'lightness': +0.05}),
+        \   pgmnt#color#adjust_color(g.orange,      {'saturation': +0.05, 'lightness': +0.05}),
         \   pgmnt#color#adjust_color(g.purple,    {'saturation': +0.05, 'lightness': +0.05}),
-        \   pgmnt#color#adjust_color(g.lblue,     {'saturation': +0.05, 'lightness': +0.05}),
+        \   pgmnt#color#adjust_color(g.lorange,     {'saturation': +0.05, 'lightness': +0.05}),
         \   pgmnt#color#adjust_color(g.normal_fg, {'saturation': +0.05, 'lightness': +0.05}),
         \ ]
 
@@ -145,10 +145,10 @@ function! yokai#palette#dark#create() abort
   let c = {}
 
   " palette
-  let c.blue = 110
+  let c.orange = 110
   let c.green = 150
-  let c.lblue = 109
-  let c.orange = 216
+  let c.lorange = 109
+  let c.blue = 216
   let c.purple = 140
   let c.red = 203
   let c.pale = 252
@@ -158,12 +158,12 @@ function! yokai#palette#dark#create() abort
   let c.normal_fg = 252
 
   " tint
-  let c.blue_tint_bg   = 24
-  let c.blue_tint_fg   = 153
+  let c.orange_tint_bg   = 24
+  let c.orange_tint_fg   = 153
   let c.green_tint_bg  = 29
   let c.green_tint_fg  = 158
-  let c.lblue_tint_bg  = 23
-  let c.lblue_tint_fg  = 159
+  let c.lorange_tint_bg  = 23
+  let c.lorange_tint_fg  = 159
   let c.purple_tint_bg = 97
   let c.purple_tint_fg = 225
   let c.red_tint_bg    = 95
@@ -198,7 +198,7 @@ function! yokai#palette#dark#create() abort
   let c.folded_fg = 245
   let c.matchparen_bg = 237
   let c.matchparen_fg = 255
-  let c.search_bg = c.orange
+  let c.search_bg = c.blue
   let c.search_fg = c.normal_bg
   let c.specialkey_fg = 240
   let c.todo_bg = c.normal_bg
