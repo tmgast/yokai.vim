@@ -6,7 +6,9 @@ A moody colorscheme for VIM inspired by colors from Yokai Ukiyo-e works of Japan
 
 ### Samples
 
-![Normal Mode HTML](/docs/n_html.png) ![Insert_Mode_Javascript](/docs/i_js.png) ![Visual_Mode_CSS](/docs/v_css.png)
+| Normal Mode | Insert Mode | Visual Mode |
+| :---------: | :---------: | :---------: |
+| ![Normal Mode HTML](/docs/n_html.png) | ![Insert_Mode_Javascript](/docs/i_js.png) | ![Visual_Mode_CSS](/docs/v_css.png) |
 
 ------
 
