@@ -22,8 +22,8 @@ function! yokai#palette#dark#create() abort
   let g.pale   = pgmnt#color#hsl(hue_pale,   0.71, 0.71)
 
   " normal
-  let g.normal_bg = pgmnt#color#hsl(hue_base, 0.11, 0.10)
-  let g.normal_fg = pgmnt#color#hsl(hue_base, 0.10, 0.85)
+  let g.normal_bg = pgmnt#color#hsl(hue_base, 0.05, 0.10)
+  let g.normal_fg = pgmnt#color#hsl(hue_base, 0.45, 0.85)
 
   " tint
   let g.orange_tint_bg   = pgmnt#color#mix(g.orange, g.normal_bg, 0.30)

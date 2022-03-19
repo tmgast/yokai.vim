@@ -101,6 +101,13 @@ function! s:create_colors(palette) abort
         \   'guifg': g.lorange,
         \ }))
   call extend(rules, pgmnt#hi#group(
+        \ 'healthSuccess', {
+        \   'ctermbg': c.green,
+        \   'ctermfg': c.normal_bg,
+        \   'guibg': g.green,
+        \   'guifg': g.normal_bg,
+        \ }))
+  call extend(rules, pgmnt#hi#group(
         \ ['Error', 'ErrorMsg', 'WarningMsg'], {
         \   'ctermbg': c.normal_bg,
         \   'ctermfg': c.red,
