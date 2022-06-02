@@ -193,6 +193,35 @@ local theme = lush(function()
     htmlSpecialTagName { htmlTag },
     typescriptEndColons { Normal },
 
+    
+    -- Sets the highlight for selected items within the picker.
+    TelescopeSelection { Visual },
+    TelescopeSelectionCaret { TelescopeSelection },
+    TelescopeMultiSelection { Type },
+    TelescopeMultiIcon { Identifier },
+
+    -- Telescope syntax highlight-groups
+    TelescopeNormal {  },
+    TelescopePromptNormal { bg = Normal.bg.lighten(6) },
+    TelescopeResultsNormal { bg = Normal.bg.lighten(3) },
+    TelescopePreviewNormal { bg = Normal.bg.lighten(2) },
+
+    --   Otherwise set them specifically
+    TelescopeBorder {  },
+    TelescopePromptBorder { TelescopePromptNormal },
+    TelescopeResultsBorder { TelescopeResultsNormal },
+    TelescopePreviewBorder { TelescopePreviewNormal },
+
+    -- Title highlight groups.
+    --   Use TelescopeTitle to override the default.
+    --   Otherwise set them specifically
+    TelescopeTitle { fg = C.data.saturate(50) },
+    TelescopePromptTitle { bg = TelescopePromptNormal.bg, fg = TelescopeTitle.fg },
+    TelescopeResultsTitle { bg = TelescopeResultsNormal.bg, fg = TelescopeTitle.fg },
+    TelescopePreviewTitle { bg = TelescopePreviewNormal.bg, fg = TelescopeTitle.fg },
+
+    TelescopePromptCounter { fg = C.secondary.lighten(20).saturate(50) },
+
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
     -- LSP client's documentation.
