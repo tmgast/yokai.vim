@@ -213,12 +213,10 @@ local theme = lush(function()
     TelescopePreviewBorder { TelescopePreviewNormal },
 
     -- Title highlight groups.
-    --   Use TelescopeTitle to override the default.
-    --   Otherwise set them specifically
     TelescopeTitle { fg = C.data.saturate(50) },
-    TelescopePromptTitle { bg = TelescopePromptNormal.bg, fg = TelescopeTitle.fg },
-    TelescopeResultsTitle { bg = TelescopeResultsNormal.bg, fg = TelescopeTitle.fg },
-    TelescopePreviewTitle { bg = TelescopePreviewNormal.bg, fg = TelescopeTitle.fg },
+    TelescopePromptTitle { TelescopeTitle, bg = TelescopePromptNormal.bg },
+    TelescopeResultsTitle { TelescopeTitle, bg = TelescopeResultsNormal.bg },
+    TelescopePreviewTitle { TelescopeTitle, bg = TelescopePreviewNormal.bg },
 
     TelescopePromptCounter { fg = C.secondary.lighten(20).saturate(50) },
 
