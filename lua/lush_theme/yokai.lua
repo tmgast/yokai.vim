@@ -128,7 +128,7 @@ local theme = lush(function()
     TabLine      { bg = Normal.bg.lighten(10), fg = Normal.fg.darken(20) }, -- Tab pages line, not active tab page label
     TabLineFill  { TabLine }, -- Tab pages line, where there are no labels
     TabLineSel   { bg = C.primary_light.darken(20), fg = C.secondary.darken(30) }, -- Tab pages line, active tab page label
-    -- Title        { }, -- Titles for output from ":set all", ":autocmd" etc.
+    Title        { Normal, gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
     Visual       { bg = C.secondary_light.mix(Normal.bg, 80).desaturate(20), fg = Normal.fg.darken(15) }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg   { fg = C.warn, gui = "italic" }, -- Warning messages
@@ -188,9 +188,16 @@ local theme = lush(function()
     Todo           { bg = Normal.bg.mix(IncSearch.bg, 10).lighten(20), fg = Normal.fg.darken(10) }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     -- Language-based tags
-    --
-    htmlTag { fg = C.primary.lighten(50).saturate(10) },
+    -- CSS
+    cssProp { fg = C.primary_dark.lighten(50).saturate(20) },
+    cssAttrRegion { fg = cssProp.fg.lighten(60).rotate(-100) },
+
+    -- HTML
+    htmlTag { fg = C.primary.lighten(50).saturate(20) },
+    htmlArg { fg = htmlTag.fg.darken(15).rotate(20) },
     htmlSpecialTagName { htmlTag },
+
+    -- TypeScript
     typescriptEndColons { Normal },
 
     
@@ -219,6 +226,22 @@ local theme = lush(function()
     TelescopePreviewTitle { TelescopeTitle, bg = TelescopePreviewNormal.bg },
 
     TelescopePromptCounter { fg = C.secondary.lighten(20).saturate(50) },
+
+    -- LuaLine syntax highlight-groups
+    lualine_a_normal { bg = C.primary, fg = C.primary_dark.darken(10) },
+    lualine_b_normal { bg = lualine_a_normal.fg.lighten(5) ,fg = lualine_a_normal.bg },
+    lualine_c_normal { bg = lualine_b_normal.bg, fg = Normal.fg.darken(20).desaturate(50) },
+
+    lualine_a_insert {},
+    lualine_b_insert {},
+    lualine_c_insert {},
+
+    lualine_a_visual {},
+    lualine_b_visual {},
+    lualine_c_visual {},
+
+    lualine_a_command {},
+    lualine_a_replace {},
 
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
