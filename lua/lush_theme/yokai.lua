@@ -47,21 +47,21 @@ local hsl = lush.hsl
 
 local C = {}
 -- primary colors are the main drivers behind the theme concept
-C.primary_light = hsl(295, 86, 97) -- used for main text and important info
-C.primary =       hsl(298, 8, 53) -- used for color mixing and tone
-C.primary_dark =  hsl(298, 18, 30) -- used for backgrounds and mixing de-emphasized text
+C.primary_light = hsl(225, 86, 95) -- used for main text and important info
+C.primary =       hsl(268, 18, 53) -- used for color mixing and tone
+C.primary_dark =  hsl(298, 8, 8) -- used for backgrounds and mixing de-emphasized text
 
 -- secondary colors are used for emphasis and tone
-C.secondary_light = hsl(220, 60, 80) -- used for text emphasis
-C.secondary =       hsl(220, 60, 60) -- used for backgrounds and color mixing
+C.secondary_light = hsl(37, 56, 71) -- used for text emphasis
+C.secondary =       hsl(22, 45, 52) -- used for backgrounds and color mixing
 
 -- tertiary colors are used for data types and standard messaging
-C.data =            hsl(280, 50, 50) -- typically blue or purple
-C.numbers =         hsl(220, 60, 50) -- typically blue
-C.message =         hsl(120, 50, 50) -- typically green
-C.err =             hsl(17, 50, 47) -- reds
-C.warn =            hsl(45, 88, 87) -- often yellow
-C.important =       hsl(41, 45, 76) -- often oranges
+C.data =            hsl(331, 41, 54).mix( C.primary_light, 40) -- typically blue or purple
+C.numbers =         hsl(176, 41, 60).mix( C.primary_light, 20) -- typically blue
+C.message =         hsl(77, 38, 37).mix( C.primary_light, 10 ) -- typically green
+C.err =             hsl(350, 80, 55) -- reds
+C.warn =            hsl(42, 76, 55) -- often yellow
+C.important =       hsl(22, 73, 55) -- often oranges
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
@@ -78,9 +78,9 @@ local theme = lush(function()
     --
     -- See :h highlight-groups
     --
-    Normal       { bg = C.primary_dark.darken(70).desaturate(20), fg = C.primary_light.lighten(40) }, -- Normal text
+    Normal       { bg = C.primary_dark, fg = C.primary_light.darken(10).desaturate(20) }, -- Normal text
     NormalFloat  { bg = Normal.bg.lighten(10).desaturate(10) }, -- Normal text in floating windows.
-    NormalNC     { fg = Normal.fg.darken(60).desaturate(80) }, -- normal text in non-current windows
+    NormalNC     { fg = Normal.fg.darken(30).desaturate(80) }, -- normal text in non-current windows
     Pmenu        { bg = Normal.bg.lighten(5).desaturate(10), fg = Normal.fg.lighten(10).saturate(20) }, -- Popup menu: Normal item.
     PmenuSel     { bg = Pmenu.bg.lighten(10).desaturate(10), fg = Pmenu.fg.lighten(10) }, -- Popup menu: Selected item.
     PmenuSbar    { bg = Pmenu.bg.darken(10) }, -- Popup menu: Scrollbar.
@@ -94,7 +94,7 @@ local theme = lush(function()
     CursorLine   { bg = Normal.bg.lighten(6) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory    { fg = C.secondary_light.lighten(10) }, -- Directory names (and other special names in listings)
     DiffChange   { bg = C.warn.mix(Normal.bg, 40), fg = Normal.bg }, -- Diff mode: Changed line |diff.txt|
-    DiffAdd      { bg = C.message.mix(Normal.bg, 50), fg = DiffChange.fg }, -- Diff mode: Added line |diff.txt|
+    DiffAdd      { bg = C.message.mix(Normal.bg, 10), fg = DiffChange.fg }, -- Diff mode: Added line |diff.txt|
     DiffDelete   { bg = C.err.mix(Normal.bg, 30), fg = DiffChange.fg }, -- Diff mode: Deleted line |diff.txt|
     DiffText     { bg = C.err.mix(Normal.bg, 10), fg = DiffChange.fg }, -- Diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer  { bg = Normal.bg.darken(5), fg = Normal.fg.darken(10).desaturate(10) }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
@@ -105,10 +105,10 @@ local theme = lush(function()
     -- Folded       { }, -- Line used for closed folds
     -- FoldColumn   { }, -- 'foldcolumn'
     SignColumn   { bg = Normal.bg.darken(20) }, -- Column where |signs| are displayed
-    -- IncSearch    { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    -- Substitute   { }, -- |:substitute| replacement text highlighting
-    LineNr       { bg = SignColumn.bg, fg = C.warn.mix(Normal.fg, 10) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr { bg = LineNr.bg.lighten(10).saturate(15), fg = LineNr.fg.lighten(10).saturate(15) }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    IncSearch    { bg = C.warn.mix(Normal.bg, 30), gui="italic" }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Substitute   { bg = C.important.mix(Normal.bg, 10), gui="bold" }, -- |:substitute| replacement text highlighting
+    LineNr       { bg = SignColumn.bg, fg = C.warn.mix(Normal.fg, 10).desaturate(40).darken(50) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    CursorLineNr { bg = LineNr.bg.lighten(10).saturate(15), fg = LineNr.fg.lighten(40).saturate(55) }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen   { bg = Normal.bg.darken(5), fg = C.secondary.saturate(20) }, -- Character under the cursor or just before it, if it is a pa.err bracket, and its match. |pi_paren.txt|
     -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
@@ -123,15 +123,15 @@ local theme = lush(function()
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-    -- StatusLine   { }, -- Status line of current window
-    -- StatusLineNC { }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    -- TabLine      { }, -- Tab pages line, not active tab page label
-    -- TabLineFill  { }, -- Tab pages line, where there are no labels
-    -- TabLineSel   { }, -- Tab pages line, active tab page label
+    StatusLine   { bg = C.primary, fg = C.primary_dark }, -- Status line of current window
+    StatusLineNC { bg = StatusLine.bg.darken(40), fg = StatusLine.fg.darken(20) }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    TabLine      { bg = Normal.bg.lighten(10), fg = Normal.fg.darken(20) }, -- Tab pages line, not active tab page label
+    TabLineFill  { TabLine }, -- Tab pages line, where there are no labels
+    TabLineSel   { bg = C.primary_light.darken(20), fg = C.secondary.darken(30) }, -- Tab pages line, active tab page label
     -- Title        { }, -- Titles for output from ":set all", ":autocmd" etc.
-    -- Visual       { }, -- Visual mode selection
+    Visual       { bg = C.secondary_light.mix(Normal.bg, 80).desaturate(20), fg = Normal.fg.darken(15) }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
-    -- WarningMsg   { }, -- Warning messages
+    WarningMsg   { fg = C.warn, gui = "italic" }, -- Warning messages
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- Winseparator { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     -- WildMenu     { }, -- Current match in 'wildmenu' completion
@@ -144,38 +144,38 @@ local theme = lush(function()
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = C.secondary.darken(15).desaturate(20), gui = "italic" }, -- Any comment
+    Comment        { fg = C.primary.darken(15).desaturate(20), gui = "italic" }, -- Any comment
 
     Constant       { fg = C.data, gui = "bold italic" }, -- (*) Any constant
-    String         { fg = C.message }, --   A string constant: "this is a string"
-    Character      { fg = String.fg.darken(5).saturate(5) }, --   A character constant: 'c', '\n'
+    String         { fg = C.message.lighten(40) }, --   A string constant: "this is a string"
+    Character      { fg = String.fg.darken(25).saturate(80) }, --   A character constant: 'c', '\n'
     Boolean        { Constant, fg = C.secondary.saturate(30).lighten(20) }, --   A boolean constant: TRUE, false
-    Number         { fg = C.err.mix(Boolean.fg, 40).saturate(10).lighten(30) }, --   A number constant: 123, -1.23, 0x123, 0b1011
+    Number         { fg = C.numbers }, --   A number constant: 123, -1.23, 0x123, 0b1011
     Float          { fg = Number.fg.saturate(50).lighten(20), gui = "italic" }, --   A floating point constant: 2.3e10
 
-    -- Identifier     { }, -- (*) Any variable name
-    -- Function       { }, --   Function name (also: methods for classes)
+    Identifier     { fg = C.primary.saturate(50).mix(C.secondary_light, 50).lighten(50) }, -- (*) Any variable name
+    Function       { fg = C.primary_light.darken(15).saturate(25) }, --   Function name (also: methods for classes)
 
-    -- Statement      { }, -- (*) Any statement
-    -- Conditional    { }, --   if, then, else, endif, switch, etc.
-    -- Repeat         { }, --   for, do, while, etc.
-    -- Label          { }, --   case, default, etc.
-    -- Operator       { }, --   "sizeof", "+", "*", etc.
-    -- Keyword        { }, --   any other keyword
-    -- Exception      { }, --   try, catch, throw
+    Statement      { fg = C.primary.lighten(40).saturate(60) }, -- (*) Any statement
+    Conditional    { fg = C.primary_light.mix(C.primary_dark, 25) }, --   if, then, else, endif, switch, etc.
+    Repeat         { Conditional }, --   for, do, while, etc.
+    Keyword        { fg = C.data.mix(Conditional.fg, 30).darken(10), gui = "italic" }, --   any other keyword
+    Label          { Keyword, gui = "" }, --   case, default, etc.
+    Operator       { fg = Conditional.fg.darken(10), gui = "italic" }, --   "sizeof", "+", "*", etc.
+    Exception      { fg = C.err.mix(Conditional.fg, 10) }, --   try, catch, throw
 
-    -- PreProc        { }, -- (*) Generic Preprocessor
+    PreProc        { fg = C.secondary_light.desaturate(10).lighten(10) }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    -- Type           { }, -- (*) int, long, char, etc.
+    Type           { fg = C.secondary_light.mix(Normal.fg, 10).saturate(60) }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
-    -- Structure      { }, --   struct, union, enum, etc.
+    Structure      { fg = C.secondary_light }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
 
-    -- Special        { }, -- (*) Any special symbol
+    Special        { fg = C.primary.mix(Normal.fg, 70) }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
     -- Delimiter      { }, --   Character that needs attention
@@ -184,8 +184,14 @@ local theme = lush(function()
 
     -- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
-    -- Error          { }, -- Any erroneous construct
-    -- Todo           { }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Error          { bg = C.err, fg = Normal.fg }, -- Any erroneous construct
+    Todo           { bg = Normal.bg.mix(IncSearch.bg, 10).lighten(20), fg = Normal.fg.darken(10) }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+
+    -- Language-based tags
+    --
+    htmlTag { fg = C.primary.lighten(50).saturate(10) },
+    htmlSpecialTagName { htmlTag },
+    typescriptEndColons { Normal },
 
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
@@ -202,10 +208,10 @@ local theme = lush(function()
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticInfo             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError            { fg = C.err, gui = "italic" } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn             { fg = C.warn.lighten(30), gui = "italic" } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo             { fg = C.primary_light.darken(15).saturate(30) } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint             { fg = C.important.lighten(20), gui = "italic" } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
