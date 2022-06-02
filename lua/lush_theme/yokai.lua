@@ -47,9 +47,9 @@ local hsl = lush.hsl
 
 local C = {}
 -- primary colors are the main drivers behind the theme concept
-C.primary_light = hsl(330, 9, 73) -- used for main text and important info
-C.primary =       hsl(14, 38, 78) -- used for color mixing and tone
-C.primary_dark =  hsl(6, 31, 70) -- used for backgrounds and mixing de-emphasized text
+C.primary_light = hsl(295, 86, 97) -- used for main text and important info
+C.primary =       hsl(298, 8, 53) -- used for color mixing and tone
+C.primary_dark =  hsl(298, 18, 30) -- used for backgrounds and mixing de-emphasized text
 
 -- secondary colors are used for emphasis and tone
 C.secondary_light = hsl(220, 60, 80) -- used for text emphasis
@@ -146,12 +146,12 @@ local theme = lush(function()
 
     Comment        { fg = C.secondary.darken(15).desaturate(20), gui = "italic" }, -- Any comment
 
-    Constant       { }, -- (*) Any constant
-    String         { }, --   A string constant: "this is a string"
-    Character      { }, --   A character constant: 'c', '\n'
-    Number         { fg = C.message.mix(C.secondary_light, 30), gui = "bold italic" }, --   A number constant: 234, 0xff
-    Boolean        { fg = C.secondary.saturate(30).lighten(20), gui = "bold" }, --   A boolean constant: TRUE, false
-    Float          { fg = C.err.mix(Boolean.fg, 40).saturate(20).lighten(20), gui = Boolean.gui }, --   A floating point constant: 2.3e10
+    Constant       { fg = C.data, gui = "bold italic" }, -- (*) Any constant
+    String         { fg = C.message }, --   A string constant: "this is a string"
+    Character      { fg = String.fg.darken(5).saturate(5) }, --   A character constant: 'c', '\n'
+    Boolean        { Constant, fg = C.secondary.saturate(30).lighten(20) }, --   A boolean constant: TRUE, false
+    Number         { fg = C.err.mix(Boolean.fg, 40).saturate(10).lighten(30) }, --   A number constant: 123, -1.23, 0x123, 0b1011
+    Float          { fg = Number.fg.saturate(50).lighten(20), gui = "italic" }, --   A floating point constant: 2.3e10
 
     -- Identifier     { }, -- (*) Any variable name
     -- Function       { }, --   Function name (also: methods for classes)
