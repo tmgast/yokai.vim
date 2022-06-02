@@ -46,16 +46,22 @@ local lush = require('lush')
 local hsl = lush.hsl
 
 local C = {}
-C.primary_light = hsl(270, 50, 70)
-C.primary =       hsl(270, 50, 50)
-C.primary_dark =  hsl(270, 50, 30)
-C.secondary_light = hsl(220, 60, 80)
-C.secondary =       hsl(220, 60, 60)
-C.secondary_dark =  hsl(220, 60, 40)
-C.green =           hsl(120, 50, 50)
-C.red =             hsl(0, 50, 50)
-C.yellow =          hsl(60, 50, 50)
-C.orange =          hsl(30, 50, 50)
+-- primary colors are the main drivers behind the theme concept
+C.primary_light = hsl(330, 9, 73) -- used for main text and important info
+C.primary =       hsl(14, 38, 78) -- used for color mixing and tone
+C.primary_dark =  hsl(6, 31, 70) -- used for backgrounds and mixing de-emphasized text
+
+-- secondary colors are used for emphasis and tone
+C.secondary_light = hsl(220, 60, 80) -- used for text emphasis
+C.secondary =       hsl(220, 60, 60) -- used for backgrounds and color mixing
+
+-- tertiary colors are used for data types and standard messaging
+C.data =            hsl(280, 50, 50) -- typically blue or purple
+C.numbers =         hsl(220, 60, 50) -- typically blue
+C.message =         hsl(120, 50, 50) -- typically green
+C.err =             hsl(17, 50, 47) -- reds
+C.warn =            hsl(45, 88, 87) -- often yellow
+C.important =       hsl(41, 45, 76) -- often oranges
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
@@ -80,30 +86,30 @@ local theme = lush(function()
     PmenuSbar    { bg = Pmenu.bg.darken(10) }, -- Popup menu: Scrollbar.
     PmenuThumb   { bg = PmenuSbar.bg.lighten(20).desaturate(20) }, -- Popup menu: Thumb of the scrollbar.
     ColorColumn  { bg = Normal.bg.lighten(3).desaturate(30) }, -- Columns set with 'colorcolumn'
-    Conceal      { bg = C.secondary_dark.darken(50).desaturate(30), fg = C.secondary_light }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
+    Conceal      { bg = C.secondary.darken(50).desaturate(30), fg = C.secondary_light }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor       { bg = Normal.fg, fg = Normal.bg }, -- Character under the cursor
     lCursor      { Cursor }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM     { Cursor }, -- Like Cursor, but used when in IME mode |CursorIM|
     CursorColumn { bg = Normal.bg.lighten(4) }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine   { bg = Normal.bg.lighten(6) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory    { fg = C.secondary_light.lighten(10) }, -- Directory names (and other special names in listings)
-    DiffChange   { bg = C.yellow.mix(Normal.bg, 40), fg = Normal.bg }, -- Diff mode: Changed line |diff.txt|
-    DiffAdd      { bg = C.green.mix(Normal.bg, 50), fg = DiffChange.fg }, -- Diff mode: Added line |diff.txt|
-    DiffDelete   { bg = C.red.mix(Normal.bg, 30), fg = DiffChange.fg }, -- Diff mode: Deleted line |diff.txt|
-    DiffText     { bg = C.red.mix(Normal.bg, 10), fg = DiffChange.fg }, -- Diff mode: Changed text within a changed line |diff.txt|
+    DiffChange   { bg = C.warn.mix(Normal.bg, 40), fg = Normal.bg }, -- Diff mode: Changed line |diff.txt|
+    DiffAdd      { bg = C.message.mix(Normal.bg, 50), fg = DiffChange.fg }, -- Diff mode: Added line |diff.txt|
+    DiffDelete   { bg = C.err.mix(Normal.bg, 30), fg = DiffChange.fg }, -- Diff mode: Deleted line |diff.txt|
+    DiffText     { bg = C.err.mix(Normal.bg, 10), fg = DiffChange.fg }, -- Diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer  { bg = Normal.bg.darken(5), fg = Normal.fg.darken(10).desaturate(10) }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     TermCursor   { bg = Normal.fg, fg = Normal.bg }, -- Cursor in a focused terminal
     TermCursorNC { bg = TermCursor.bg.darken(60).desaturate(60), fg = TermCursor.fg }, -- Cursor in an unfocused terminal
-    -- ErrorMsg     { }, -- Error messages on the command line
-    -- VertSplit    { }, -- Column separating vertically split windows
+    ErrorMsg     { bg = C.err }, -- Error messages on the command line
+    VertSplit    { bg = C.primary.darken(50).desaturate(10) }, -- Column separating vertically split windows
     -- Folded       { }, -- Line used for closed folds
     -- FoldColumn   { }, -- 'foldcolumn'
-    -- SignColumn   { }, -- Column where |signs| are displayed
+    SignColumn   { bg = Normal.bg.darken(20) }, -- Column where |signs| are displayed
     -- IncSearch    { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     -- Substitute   { }, -- |:substitute| replacement text highlighting
-    -- LineNr       { }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    -- CursorLineNr { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    -- MatchParen   { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    LineNr       { bg = SignColumn.bg, fg = C.warn.mix(Normal.fg, 10) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    CursorLineNr { bg = LineNr.bg.lighten(10).saturate(15), fg = LineNr.fg.lighten(10).saturate(15) }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    MatchParen   { bg = Normal.bg.darken(5), fg = C.secondary.saturate(20) }, -- Character under the cursor or just before it, if it is a pa.err bracket, and its match. |pi_paren.txt|
     -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -131,21 +137,21 @@ local theme = lush(function()
     -- WildMenu     { }, -- Current match in 'wildmenu' completion
 
     -- Common vim syntax groups used for all kinds of code and markup.
-    -- Commented-out groups should chain up to their preferred (*) group
+    -- Commented-out groups should chain up to their prefe.err (*) group
     -- by default.
     --
     -- See :h group-name
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    -- Comment        { }, -- Any comment
+    Comment        { fg = C.secondary.darken(15).desaturate(20), gui = "italic" }, -- Any comment
 
-    -- Constant       { }, -- (*) Any constant
-    -- String         { }, --   A string constant: "this is a string"
-    -- Character      { }, --   A character constant: 'c', '\n'
-    -- Number         { }, --   A number constant: 234, 0xff
-    -- Boolean        { }, --   A boolean constant: TRUE, false
-    -- Float          { }, --   A floating point constant: 2.3e10
+    Constant       { }, -- (*) Any constant
+    String         { }, --   A string constant: "this is a string"
+    Character      { }, --   A character constant: 'c', '\n'
+    Number         { fg = C.message.mix(C.secondary_light, 30), gui = "bold italic" }, --   A number constant: 234, 0xff
+    Boolean        { fg = C.secondary.saturate(30).lighten(20), gui = "bold" }, --   A boolean constant: TRUE, false
+    Float          { fg = C.err.mix(Boolean.fg, 40).saturate(20).lighten(20), gui = Boolean.gui }, --   A floating point constant: 2.3e10
 
     -- Identifier     { }, -- (*) Any variable name
     -- Function       { }, --   Function name (also: methods for classes)
@@ -260,7 +266,7 @@ local theme = lush(function()
     -- TSPunctBracket       { } , -- Brackets, braces, parentheses, etc.
     -- TSPunctSpecial       { } , -- Special punctuation that doesn't fit into the previous categories.
     -- TSRepeat             { } , -- Keywords related to loops: `for`, `while`, etc.
-    -- TSStorageClass       { } , -- Keywords that affect how a variable is stored: `static`, `comptime`, `extern`, etc.
+    -- TSStorageClass       { } , -- Keywords that affect how a variable is st.err: `static`, `comptime`, `extern`, etc.
     -- TSString             { } , -- String literals.
     -- TSStringRegex        { } , -- Regular expression literals.
     -- TSStringEscape       { } , -- Escape characters within a string: `\n`, `\t`, etc.
@@ -269,7 +275,7 @@ local theme = lush(function()
     -- TSTag                { } , -- Tags like HTML tag names.
     -- TSTagAttribute       { } , -- HTML tag attributes.
     -- TSTagDelimiter       { } , -- Tag delimiters like `<` `>` `/`.
-    -- TSText               { } , -- Non-structured text. Like text in a markup language.
+    -- TSText               { } , -- Non-struct.err text. Like text in a markup language.
     -- TSStrong             { } , -- Text to be represented in bold.
     -- TSEmphasis           { } , -- Text to be represented with emphasis.
     -- TSUnderline          { } , -- Text to be represented with an underline.
