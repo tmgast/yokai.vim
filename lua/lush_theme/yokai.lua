@@ -56,7 +56,7 @@ C.secondary =       hsl(22, 45, 52) -- used for backgrounds and color mixing
 C.secondary_light = C.secondary.lighten(40).saturate(20) -- used for text emphasis
 
 -- tertiary colors are used for data types and standard messaging
-C.data =            hsl(331, 41, 54).mix( C.primary_light, 40) -- typically blue or purple
+C.data =            hsl(280, 41, 54).mix( C.primary_light, 40) -- typically blue or purple
 C.numbers =         hsl(176, 41, 60).mix( C.primary_light, 20) -- typically blue
 C.message =         hsl(77, 38, 37).mix( C.primary_light, 10 ) -- typically green
 C.err =             hsl(350, 80, 55) -- reds
@@ -93,12 +93,12 @@ local theme = lush(function()
     CursorColumn { bg = Normal.bg.lighten(4) }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine   { bg = Normal.bg.lighten(6) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory    { fg = C.secondary_light.lighten(10) }, -- Directory names (and other special names in listings)
-    DiffChange   { fg = C.warn.mix(Normal.bg, 40).lighten(35).desaturate(50) }, -- Diff mode: Changed line |diff.txt|
-    DiffChanged  { fg = C.warn.mix(Normal.bg, 40).lighten(35).desaturate(50) }, -- Diff mode: Changed line |diff.txt|
-    DiffAdde     { fg = C.message.mix(Normal.bg, 10).lighten(20).desaturate(50) }, -- Diff mode: Added line |diff.txt|
-    DiffAdded    { fg = C.message.mix(Normal.bg, 10).lighten(20).desaturate(50) }, -- Diff mode: Added line |diff.txt|
-    DiffDelete   { fg = C.err.mix(Normal.bg, 30).lighten(20).desaturate(50) }, -- Diff mode: Deleted line |diff.txt|
-    DiffDeleted  { fg = C.err.mix(Normal.bg, 30).lighten(20).desaturate(50) }, -- Diff mode: Deleted line |diff.txt|
+    DiffChange   { fg = C.warn.mix(Normal.bg, 40).lighten(40).desaturate(20) }, -- Diff mode: Changed line |diff.txt|
+    DiffChanged  { fg = C.warn.mix(Normal.bg, 40).lighten(40).desaturate(20) }, -- Diff mode: Changed line |diff.txt|
+    DiffAdd      { fg = C.message.mix(Normal.bg, 10).lighten(25).desaturate(20) }, -- Diff mode: Added line |diff.txt|
+    DiffAdded    { fg = C.message.mix(Normal.bg, 10).lighten(25).desaturate(20) }, -- Diff mode: Added line |diff.txt|
+    DiffDelete   { fg = C.err.mix(Normal.bg, 30).lighten(25).desaturate(20) }, -- Diff mode: Deleted line |diff.txt|
+    DiffDeleted  { fg = C.err.mix(Normal.bg, 30).lighten(25).desaturate(20) }, -- Diff mode: Deleted line |diff.txt|
     DiffText     { bg = C.err.mix(Normal.bg, 10), fg = DiffChange.fg }, -- Diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer  { bg = Normal.bg.darken(5), fg = Normal.fg.darken(10).desaturate(10) }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     TermCursor   { bg = Normal.fg, fg = Normal.bg }, -- Cursor in a focused terminal
@@ -110,8 +110,8 @@ local theme = lush(function()
     SignColumn   { bg = Normal.bg.darken(20) }, -- Column where |signs| are displayed
     IncSearch    { bg = C.warn.mix(Normal.bg, 30), gui="italic" }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute   { bg = C.important.mix(Normal.bg, 10), gui="bold" }, -- |:substitute| replacement text highlighting
-    LineNr       { bg = SignColumn.bg, fg = C.warn.mix(Normal.fg, 10).desaturate(40).darken(50) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr { bg = LineNr.bg.lighten(10).saturate(15), fg = LineNr.fg.lighten(40).saturate(55) }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    LineNr       { bg = SignColumn.bg, fg = C.warn.mix(Normal.fg, 80).desaturate(70).darken(70) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    CursorLineNr { bg = LineNr.bg.lighten(10).saturate(15), fg = LineNr.fg.lighten(40).saturate(75) }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen   { bg = Normal.bg.darken(5), fg = C.secondary.saturate(20) }, -- Character under the cursor or just before it, if it is a pa.err bracket, and its match. |pi_paren.txt|
     -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
@@ -150,20 +150,20 @@ local theme = lush(function()
 
     Comment        { fg = C.primary.darken(15).desaturate(20), gui = "italic" }, -- Any comment
 
-    Constant       { fg = C.data, gui = "bold italic" }, -- (*) Any constant
+    Constant       { fg = C.data.saturate(40), gui = "bold italic" }, -- (*) Any constant
     String         { fg = C.message.lighten(40) }, --   A string constant: "this is a string"
-    Character      { fg = String.fg.darken(25).saturate(80) }, --   A character constant: 'c', '\n'
+    Character      { fg = String.fg.darken(25).saturate(60), gui = "" }, --   A character constant: 'c', '\n'
     Boolean        { Constant, fg = C.secondary.saturate(30).lighten(20) }, --   A boolean constant: TRUE, false
     Number         { fg = C.numbers }, --   A number constant: 123, -1.23, 0x123, 0b1011
     Float          { fg = Number.fg.saturate(50).lighten(20), gui = "italic" }, --   A floating point constant: 2.3e10
 
-    Identifier     { fg = C.primary.saturate(50).mix(C.secondary_light, 50).lighten(50) }, -- (*) Any variable name
+    Identifier     { fg = C.primary.darken(50).saturate(50).mix(C.secondary_light, 10).lighten(40) }, -- (*) Any variable name
     Function       { fg = C.primary_light.darken(15).saturate(25) }, --   Function name (also: methods for classes)
 
     Statement      { fg = C.primary.lighten(40).saturate(60) }, -- (*) Any statement
-    Conditional    { fg = C.primary_light.mix(C.primary_dark, 25) }, --   if, then, else, endif, switch, etc.
+    Conditional    { fg = C.primary.rotate(280).lighten(35).saturate(30) }, --   if, then, else, endif, switch, etc.
     Repeat         { Conditional }, --   for, do, while, etc.
-    Keyword        { fg = C.data.mix(Conditional.fg, 30).darken(10), gui = "italic" }, --   any other keyword
+    Keyword        { fg = C.data.mix(Conditional.fg, 30).saturate(50), gui = "italic" }, --   any other keyword
     Label          { Keyword, gui = "" }, --   case, default, etc.
     Operator       { fg = Conditional.fg.darken(10), gui = "italic" }, --   "sizeof", "+", "*", etc.
     Exception      { fg = C.err.mix(Conditional.fg, 10) }, --   try, catch, throw
@@ -174,12 +174,12 @@ local theme = lush(function()
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = C.secondary_light.mix(Normal.fg, 10).saturate(60) }, -- (*) int, long, char, etc.
+    Type           { fg = C.secondary_light.mix(C.primary, 10).saturate(60) }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     Structure      { fg = C.secondary_light }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
 
-    Special        { fg = C.primary.mix(Normal.fg, 70) }, -- (*) Any special symbol
+    Special        { fg = C.message.lighten(50).saturate(50).rotate(30), gui = "italic" }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
     -- Delimiter      { }, --   Character that needs attention
@@ -203,6 +203,8 @@ local theme = lush(function()
 
     -- TypeScript
     typescriptEndColons { Normal },
+    typescriptTry        { fg = C.err.mix(Conditional.fg, 80).darken(30).saturate(60) },
+    typescriptExceptions { fg = C.err.mix(C.primary_dark, 20) },
 
     
     -- Sets the highlight for selected items within the picker.
