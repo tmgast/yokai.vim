@@ -437,35 +437,36 @@ end)
 local yokai = {
   normal = {
     a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
   },
   insert = {
     a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
   },
   visual = {
     a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
   },
   replace = {
     a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
   },
   command = {
     a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
   },
   inactive = {
     a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
   }
 }
+
 require('lualine').setup {options = {theme = yokai}}
 
 
