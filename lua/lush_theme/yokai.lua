@@ -228,7 +228,6 @@ local theme = lush(function()
     TelescopePromptCounter { fg = C.secondary.lighten(20).saturate(50) },
 
 
-
     -- LuaLine syntax highlight-groups
     lualine_a_normal { bg = C.primary_light.darken(20), fg = C.primary_dark.darken(10) },
     lualine_transitional_lualine_a_normal_to_lualine_b_normal { bg = lualine_a_normal.fg.lighten(5),  fg = lualine_a_normal.bg },
@@ -270,10 +269,10 @@ local theme = lush(function()
     lualine_b_diff_removed_command { lualine_b_diff_error },
 
     lualine_b_diagnostics { bg = C.primary_dark.darken(10) },
-    lualine_b_diagnostics_hint { lualine_b_diagnostics, fg = C.message.darken(10) },
-    lualine_b_diagnostics_info { lualine_b_diagnostics, fg = C.data.darken(10) },
-    lualine_b_diagnostics_warning { lualine_b_diagnostics, fg = C.warn.darken(10) },
-    lualine_b_diagnostics_error { lualine_b_diagnostics, fg = C.err.darken(10) },
+    lualine_b_diagnostics_hint { lualine_b_diagnostics, fg = C.message.lighten(40) },
+    lualine_b_diagnostics_info { lualine_b_diagnostics, fg = C.data.lighten(40) },
+    lualine_b_diagnostics_warning { lualine_b_diagnostics, fg = C.warn.lighten(40) },
+    lualine_b_diagnostics_error { lualine_b_diagnostics, fg = C.err.lighten(40) },
 
     lualine_b_diagnostics_hint_normal { lualine_b_diagnostics_hint },
     lualine_b_diagnostics_hint_insert { lualine_b_diagnostics_hint },
