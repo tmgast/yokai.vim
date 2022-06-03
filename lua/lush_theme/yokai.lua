@@ -93,8 +93,11 @@ local theme = lush(function()
     CursorColumn { bg = Normal.bg.lighten(4) }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine   { bg = Normal.bg.lighten(6) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory    { fg = C.secondary_light.lighten(10) }, -- Directory names (and other special names in listings)
+    DiffChange   { fg = C.warn.mix(Normal.bg, 40).lighten(35).desaturate(50) }, -- Diff mode: Changed line |diff.txt|
     DiffChanged  { fg = C.warn.mix(Normal.bg, 40).lighten(35).desaturate(50) }, -- Diff mode: Changed line |diff.txt|
+    DiffAdde     { fg = C.message.mix(Normal.bg, 10).lighten(20).desaturate(50) }, -- Diff mode: Added line |diff.txt|
     DiffAdded    { fg = C.message.mix(Normal.bg, 10).lighten(20).desaturate(50) }, -- Diff mode: Added line |diff.txt|
+    DiffDelete   { fg = C.err.mix(Normal.bg, 30).lighten(20).desaturate(50) }, -- Diff mode: Deleted line |diff.txt|
     DiffDeleted  { fg = C.err.mix(Normal.bg, 30).lighten(20).desaturate(50) }, -- Diff mode: Deleted line |diff.txt|
     DiffText     { bg = C.err.mix(Normal.bg, 10), fg = DiffChange.fg }, -- Diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer  { bg = Normal.bg.darken(5), fg = Normal.fg.darken(10).desaturate(10) }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
