@@ -47,13 +47,13 @@ local hsl = lush.hsl
 
 local C = {}
 -- primary colors are the main drivers behind the theme concept
-C.primary_light = hsl(225, 86, 95) -- used for main text and important info
 C.primary =       hsl(268, 18, 53) -- used for color mixing and tone
-C.primary_dark =  hsl(298, 8, 8) -- used for backgrounds and mixing de-emphasized text
+C.primary_light = C.primary.rotate(-60).lighten(75).desaturate(30) -- used for main text and important info
+C.primary_dark =  C.primary.darken(85).desaturate(20) -- used for backgrounds and mixing de-emphasized text
 
 -- secondary colors are used for emphasis and tone
-C.secondary_light = hsl(37, 56, 71) -- used for text emphasis
 C.secondary =       hsl(22, 45, 52) -- used for backgrounds and color mixing
+C.secondary_light = C.secondary.lighten(40).saturate(20) -- used for text emphasis
 
 -- tertiary colors are used for data types and standard messaging
 C.data =            hsl(331, 41, 54).mix( C.primary_light, 40) -- typically blue or purple
