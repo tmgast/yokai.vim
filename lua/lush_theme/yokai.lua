@@ -136,6 +136,7 @@ local theme = lush(function()
     -- Winseparator { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     -- WildMenu     { }, -- Current match in 'wildmenu' completion
 
+
     -- Common vim syntax groups used for all kinds of code and markup.
     -- Commented-out groups should chain up to their prefe.err (*) group
     -- by default.
@@ -227,100 +228,6 @@ local theme = lush(function()
 
     TelescopePromptCounter { fg = C.secondary.lighten(20).saturate(50) },
 
-
-    -- LuaLine syntax highlight-groups
-    lualine_a_normal { bg = C.primary_light.darken(20), fg = C.primary_dark.darken(10) },
-    lualine_transitional_lualine_a_normal_to_lualine_b_normal { bg = lualine_a_normal.fg.lighten(5),  fg = lualine_a_normal.bg },
-    lualine_b_normal { bg = lualine_a_normal.fg.lighten(5), fg = lualine_a_normal.bg },
-    lualine_transitional_lualine_b_normal_to_lualine_c_normal { bg = lualine_b_normal.bg.darken(10), fg = lualine_b_normal.bg },
-    lualine_c_normal { bg = lualine_b_normal.bg.darken(10), fg = C.secondary_light.darken(10) },
-
-    lualine_a_insert { bg = C.secondary_light.darken(30), fg = C.secondary.darken(50) },
-    lualine_transitional_lualine_a_insert_to_lualine_b_insert { bg = lualine_a_normal.fg.lighten(5), fg = lualine_a_insert.bg },
-    lualine_b_insert { lualine_b_normal, fg = lualine_a_insert.bg },
-    lualine_transitional_lualine_b_insert_to_lualine_c_normal { bg = lualine_c_normal.bg, fg = lualine_b_insert.bg },
-
-    lualine_a_visual { bg = C.primary.rotate(180), fg = C.primary_dark.darken(10) },
-    lualine_transitional_lualine_a_visual_to_lualine_b_visual { fg = lualine_a_visual.bg },
-    lualine_b_visual { lualine_b_normal, fg = lualine_a_visual.bg },
-    lualine_transitional_lualine_b_visual_to_lualine_c_normal { bg = lualine_c_normal.bg, fg = lualine_b_visual.bg },
-
-    lualine_a_command { bg = C.data.darken(20), fg = C.primary_dark.darken(10) },
-    lualine_transitional_lualine_a_command_to_lualine_b_command { bg = lualine_a_normal.fg.lighten(5), fg = lualine_a_command.bg },
-    lualine_b_command { lualine_b_normal, fg = lualine_a_command.bg.darken(10) },
-    lualine_transitional_lualine_b_command_to_lualine_c_normal { bg = lualine_c_normal.bg, fg = lualine_b_visual.bg },
-
-    lualine_b_diff { bg = C.primary_dark.darken(10) },
-    lualine_b_diff_add { lualine_b_diff, fg = C.message },
-    lualine_b_diff_warning { lualine_b_diff, fg = C.warn},
-    lualine_b_diff_error { lualine_b_diff, fg = C.err },
-
-    lualine_b_diff_added_normal { lualine_b_diff_add },
-    lualine_b_diff_added_insert { lualine_b_diff_add },
-    lualine_b_diff_added_visual { lualine_b_diff_add },
-    lualine_b_diff_added_command { lualine_b_diff_add },
-    lualine_b_diff_modified_normal { lualine_b_diff_warning },
-    lualine_b_diff_modified_insert { lualine_b_diff_warning },
-    lualine_b_diff_modified_visual { lualine_b_diff_warning },
-    lualine_b_diff_modified_command { lualine_b_diff_warning },
-    lualine_b_diff_removed_normal { lualine_b_diff_error },
-    lualine_b_diff_removed_insert { lualine_b_diff_error },
-    lualine_b_diff_removed_visual { lualine_b_diff_error },
-    lualine_b_diff_removed_command { lualine_b_diff_error },
-
-    lualine_b_diagnostics { bg = C.primary_dark.darken(10) },
-    lualine_b_diagnostics_hint { lualine_b_diagnostics, fg = C.message.lighten(40) },
-    lualine_b_diagnostics_info { lualine_b_diagnostics, fg = C.data.lighten(40) },
-    lualine_b_diagnostics_warning { lualine_b_diagnostics, fg = C.warn.lighten(40) },
-    lualine_b_diagnostics_error { lualine_b_diagnostics, fg = C.err.lighten(40) },
-
-    lualine_b_diagnostics_hint_normal { lualine_b_diagnostics_hint },
-    lualine_b_diagnostics_hint_insert { lualine_b_diagnostics_hint },
-    lualine_b_diagnostics_hint_visual { lualine_b_diagnostics_hint },
-    lualine_b_diagnostics_hint_command { lualine_b_diagnostics_hint },
-    lualine_b_diagnostics_info_normal { lualine_b_diagnostics_info },
-    lualine_b_diagnostics_info_insert { lualine_b_diagnostics_info },
-    lualine_b_diagnostics_info_visual { lualine_b_diagnostics_info },
-    lualine_b_diagnostics_info_command { lualine_b_diagnostics_info },
-    lualine_b_diagnostics_warning_normal { lualine_b_diagnostics_warning },
-    lualine_b_diagnostics_warning_insert { lualine_b_diagnostics_warning },
-    lualine_b_diagnostics_warning_visual { lualine_b_diagnostics_warning },
-    lualine_b_diagnostics_warning_command { lualine_b_diagnostics_warning },
-    lualine_b_diagnostics_error_normal { lualine_b_diagnostics_error },
-    lualine_b_diagnostics_error_insert { lualine_b_diagnostics_error },
-    lualine_b_diagnostics_error_visual { lualine_b_diagnostics_error },
-    lualine_b_diagnostics_error_command { lualine_b_diagnostics_error },
-
-    lualine_transitional_lualine_b_diagnostics_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-
-    lualine_transitional_lualine_b_diagnostics_error_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_error_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_error_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_error_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-
-    lualine_transitional_lualine_b_diagnostics_hint_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_hint_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_hint_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_hint_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-
-    lualine_transitional_lualine_b_diagnostics_info_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_info_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_info_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diagnostics_info_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-
-    lualine_transitional_lualine_b_diff_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diff_removed_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diff_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diff_removed_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diff_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diff_removed_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diff_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-    lualine_transitional_lualine_b_diff_removed_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
-
-    lualine_a_replace {},
 
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
@@ -429,10 +336,139 @@ local theme = lush(function()
     -- TSTypeBuiltin        { } , -- Built-in types: `i32` in Rust.
     -- TSVariable           { } , -- Variable names that don't fit into other categories.
     -- TSVariableBuiltin    { } , -- Variable names defined by the language: `this` or `self` in Javascript.
+
+    -- LuaLine syntax highlight-groups
+    -- lualine_a_normal { bg = C.primary_light.darken(20), fg = C.primary_dark.darken(10) },
+    -- lualine_transitional_lualine_a_normal_to_lualine_b_normal { bg = lualine_a_normal.fg.lighten(5),  fg = lualine_a_normal.bg },
+    -- lualine_b_normal { bg = lualine_a_normal.fg.lighten(5), fg = lualine_a_normal.bg },
+    -- lualine_transitional_lualine_b_normal_to_lualine_c_normal { bg = lualine_b_normal.bg.darken(10), fg = lualine_b_normal.bg },
+    -- lualine_c_normal { bg = lualine_b_normal.bg.darken(10), fg = C.secondary_light.darken(10) },
+
+    -- lualine_a_insert { bg = C.secondary_light.darken(30), fg = C.secondary.darken(50) },
+    -- lualine_transitional_lualine_a_insert_to_lualine_b_insert { bg = lualine_a_normal.fg.lighten(5), fg = lualine_a_insert.bg },
+    -- lualine_b_insert { lualine_b_normal, fg = lualine_a_insert.bg },
+    lualine_transitional_lualine_b_insert_to_lualine_c_normal { bg = lualine_c_normal.bg, fg = lualine_b_insert.bg },
+
+    -- lualine_a_visual { bg = C.primary.rotate(180), fg = C.primary_dark.darken(10) },
+    -- lualine_transitional_lualine_a_visual_to_lualine_b_visual { fg = lualine_a_visual.bg },
+    -- lualine_b_visual { lualine_b_normal, fg = lualine_a_visual.bg },
+    lualine_transitional_lualine_b_visual_to_lualine_c_normal { bg = lualine_c_normal.bg, fg = lualine_b_visual.bg },
+
+    -- lualine_a_command { bg = C.data.darken(20), fg = C.primary_dark.darken(10) },
+    -- lualine_transitional_lualine_a_command_to_lualine_b_command { bg = lualine_a_normal.fg.lighten(5), fg = lualine_a_command.bg },
+    -- lualine_b_command { lualine_b_normal, fg = lualine_a_command.bg.darken(10) },
+    -- lualine_transitional_lualine_b_command_to_lualine_c_normal { bg = lualine_c_normal.bg, fg = lualine_b_visual.bg },
+
+    -- lualine_b_diff { bg = C.primary_dark.darken(10) },
+    -- lualine_b_diff_add { lualine_b_diff, fg = C.message },
+    -- lualine_b_diff_warning { lualine_b_diff, fg = C.warn},
+    -- lualine_b_diff_error { lualine_b_diff, fg = C.err },
+
+    -- lualine_b_diff_added_normal { lualine_b_diff_add },
+    -- lualine_b_diff_added_insert { lualine_b_diff_add },
+    -- lualine_b_diff_added_visual { lualine_b_diff_add },
+    -- lualine_b_diff_added_command { lualine_b_diff_add },
+    -- lualine_b_diff_modified_normal { lualine_b_diff_warning },
+    -- lualine_b_diff_modified_insert { lualine_b_diff_warning },
+    -- lualine_b_diff_modified_visual { lualine_b_diff_warning },
+    -- lualine_b_diff_modified_command { lualine_b_diff_warning },
+    -- lualine_b_diff_removed_normal { lualine_b_diff_error },
+    -- lualine_b_diff_removed_insert { lualine_b_diff_error },
+    -- lualine_b_diff_removed_visual { lualine_b_diff_error },
+    -- lualine_b_diff_removed_command { lualine_b_diff_error },
+
+    -- lualine_b_diagnostics { bg = C.primary_dark.darken(10) },
+    -- lualine_b_diagnostics_hint { lualine_b_diagnostics, fg = C.message.lighten(40) },
+    -- lualine_b_diagnostics_info { lualine_b_diagnostics, fg = C.data.lighten(40) },
+    -- lualine_b_diagnostics_warning { lualine_b_diagnostics, fg = C.warn.lighten(40) },
+    -- lualine_b_diagnostics_error { lualine_b_diagnostics, fg = C.err.lighten(40) },
+
+    -- lualine_b_diagnostics_hint_normal { lualine_b_diagnostics_hint },
+    -- lualine_b_diagnostics_hint_insert { lualine_b_diagnostics_hint },
+    -- lualine_b_diagnostics_hint_visual { lualine_b_diagnostics_hint },
+    -- lualine_b_diagnostics_hint_command { lualine_b_diagnostics_hint },
+    -- lualine_b_diagnostics_info_normal { lualine_b_diagnostics_info },
+    -- lualine_b_diagnostics_info_insert { lualine_b_diagnostics_info },
+    -- lualine_b_diagnostics_info_visual { lualine_b_diagnostics_info },
+    -- lualine_b_diagnostics_info_command { lualine_b_diagnostics_info },
+    -- lualine_b_diagnostics_warning_normal { lualine_b_diagnostics_warning },
+    -- lualine_b_diagnostics_warning_insert { lualine_b_diagnostics_warning },
+    -- lualine_b_diagnostics_warning_visual { lualine_b_diagnostics_warning },
+    -- lualine_b_diagnostics_warning_command { lualine_b_diagnostics_warning },
+    -- lualine_b_diagnostics_error_normal { lualine_b_diagnostics_error },
+    -- lualine_b_diagnostics_error_insert { lualine_b_diagnostics_error },
+    -- lualine_b_diagnostics_error_visual { lualine_b_diagnostics_error },
+    -- lualine_b_diagnostics_error_command { lualine_b_diagnostics_error },
+
+    -- lualine_transitional_lualine_b_diagnostics_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+
+    -- lualine_transitional_lualine_b_diagnostics_error_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_error_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_error_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_error_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+
+    -- lualine_transitional_lualine_b_diagnostics_hint_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_hint_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_hint_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_hint_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+
+    -- lualine_transitional_lualine_b_diagnostics_info_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_info_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_info_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diagnostics_info_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+
+    -- lualine_transitional_lualine_b_diff_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diff_removed_normal_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diff_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diff_removed_insert_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diff_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diff_removed_visual_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diff_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+    -- lualine_transitional_lualine_b_diff_removed_command_to_lualine_c_normal { lualine_c_normal, fg = lualine_a_normal.fg },
+
+    -- lualine_a_replace {},
   }
+
+local yokai {
+  normal = {
+    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+  },
+  insert = {
+    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+  },
+  visual = {
+    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+  },
+  replace = {
+    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+  },
+  command = {
+    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+  },
+  inactive = {
+    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+  }
+}
+require('lualine').setup {options = {theme = yokai}}
 end)
 
--- Return our parsed theme for extension or use elsewhere.
+
+
 return theme
 
--- vi:nowrap
+-- vi:nowrap:cursorline:number
