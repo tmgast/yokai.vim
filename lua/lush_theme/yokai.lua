@@ -67,7 +67,7 @@ C.important =       hsl(22, 73, 55) -- often oranges
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
 local theme = lush(function()
-  return {
+  local lushStyle = {
     -- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
     -- groups, mostly used for styling UI elements.
     -- Comment them out and add your own properties to override the defaults.
@@ -432,39 +432,41 @@ local theme = lush(function()
     -- lualine_a_replace {},
   }
 
-local yokai {
-  normal = {
-    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
-  },
-  insert = {
-    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
-  },
-  visual = {
-    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
-  },
-  replace = {
-    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
-  },
-  command = {
-    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
-  },
-  inactive = {
-    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+  local yokai {
+    normal = {
+      a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+      b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+      c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    },
+    insert = {
+      a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+      b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+      c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    },
+    visual = {
+      a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+      b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+      c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    },
+    replace = {
+      a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+      b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+      c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    },
+    command = {
+      a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+      b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+      c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    },
+    inactive = {
+      a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
+      b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
+      c = {bg = C.primary_dark.darken(10), fg = C.secondary_light.darken(10).hex},
+    }
   }
-}
-require('lualine').setup {options = {theme = yokai}}
+  require('lualine').setup {options = {theme = yokai}}
+
+  return lushStyle
 end)
 
 
