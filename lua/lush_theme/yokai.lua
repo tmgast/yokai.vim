@@ -432,7 +432,7 @@ local theme = lush(function()
     -- lualine_a_replace {},
   }
 
-  local yokai {
+  local yokai = {
     normal = {
       a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
       b = {bg = C.primary_dark.darken(5), fg = C.primary_light.darken(20).hex},
