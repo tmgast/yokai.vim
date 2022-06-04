@@ -78,39 +78,39 @@ local theme = lush(function()
     --
     -- See :h highlight-groups
     --
-    Normal       { bg = C.primary_dark, fg = C.primary_light.darken(10).desaturate(20) }, -- Normal text
-    NormalFloat  { bg = Normal.bg.lighten(10).desaturate(10) }, -- Normal text in floating windows.
-    NormalNC     { fg = Normal.fg.darken(30).desaturate(80) }, -- normal text in non-current windows
-    Pmenu        { bg = Normal.bg.lighten(5).desaturate(10), fg = Normal.fg.lighten(10).saturate(20) }, -- Popup menu: Normal item.
-    PmenuSel     { bg = Pmenu.bg.lighten(10).desaturate(10), fg = Pmenu.fg.lighten(10) }, -- Popup menu: Selected item.
-    PmenuSbar    { bg = Pmenu.bg.darken(10) }, -- Popup menu: Scrollbar.
-    PmenuThumb   { bg = PmenuSbar.bg.lighten(20).desaturate(20) }, -- Popup menu: Thumb of the scrollbar.
-    ColorColumn  { bg = Normal.bg.lighten(3).desaturate(30) }, -- Columns set with 'colorcolumn'
-    Conceal      { bg = C.secondary.darken(50).desaturate(30), fg = C.secondary_light }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor       { bg = Normal.fg, fg = Normal.bg }, -- Character under the cursor
-    lCursor      { Cursor }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
-    CursorIM     { Cursor }, -- Like Cursor, but used when in IME mode |CursorIM|
-    CursorColumn { bg = Normal.bg.lighten(4) }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    CursorLine   { bg = Normal.bg.lighten(6) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-    Directory    { fg = C.secondary_light.lighten(10) }, -- Directory names (and other special names in listings)
-    EndOfBuffer  { bg = Normal.bg.darken(5), fg = Normal.fg.darken(10).desaturate(10) }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
-    TermCursor   { bg = Normal.fg, fg = Normal.bg }, -- Cursor in a focused terminal
-    TermCursorNC { bg = TermCursor.bg.darken(60).desaturate(60), fg = TermCursor.fg }, -- Cursor in an unfocused terminal
-    ErrorMsg     { bg = C.err }, -- Error messages on the command line
-    VertSplit    { bg = C.primary.darken(50).desaturate(10) }, -- Column separating vertically split windows
+    Normal       {  }, -- Normal text
+    NormalFloat  {  }, -- Normal text in floating windows.
+    NormalNC     {  }, -- normal text in non-current windows
+    Pmenu        {  }, -- Popup menu: Normal item.
+    PmenuSel     {  }, -- Popup menu: Selected item.
+    PmenuSbar    {  }, -- Popup menu: Scrollbar.
+    PmenuThumb   {  }, -- Popup menu: Thumb of the scrollbar.
+    ColorColumn  {  }, -- Columns set with 'colorcolumn'
+    Conceal      {  }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
+    Cursor       {  }, -- Character under the cursor
+    lCursor      {  }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM     {  }, -- Like Cursor, but used when in IME mode |CursorIM|
+    CursorColumn {  }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorLine   {  }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    Directory    {  }, -- Directory names (and other special names in listings)
+    EndOfBuffer  {  }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
+    TermCursor   {  }, -- Cursor in a focused terminal
+    TermCursorNC {  }, -- Cursor in an unfocused terminal
+    ErrorMsg     {  }, -- Error messages on the command line
+    VertSplit    {  }, -- Column separating vertically split windows
     -- Folded       { }, -- Line used for closed folds
     -- FoldColumn   { }, -- 'foldcolumn'
-    SignColumn   { bg = Normal.bg.darken(20) }, -- Column where |signs| are displayed
-    IncSearch    { bg = C.warn.mix(Normal.bg, 30), gui="italic" }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    Substitute   { bg = C.important.mix(Normal.bg, 10), gui="bold" }, -- |:substitute| replacement text highlighting
-    LineNr       { bg = SignColumn.bg, fg = C.warn.mix(Normal.fg, 80).desaturate(70).darken(70) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr { bg = LineNr.bg.lighten(10).saturate(15), fg = LineNr.fg.lighten(40).saturate(75) }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen   { bg = Normal.bg.darken(5), fg = C.secondary.saturate(20) }, -- Character under the cursor or just before it, if it is a pa.err bracket, and its match. |pi_paren.txt|
+    SignColumn   {  }, -- Column where |signs| are displayed
+    IncSearch    {  }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Substitute   {  }, -- |:substitute| replacement text highlighting
+    LineNr       {  }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    CursorLineNr {  }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    MatchParen   {  }, -- Character under the cursor or just before it, if it is a pa.err bracket, and its match. |pi_paren.txt|
     -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg      { }, -- |more-prompt|
-    NonText      { fg = C.err }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText      {  }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     -- Question     { }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     -- Search       { }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
@@ -119,15 +119,15 @@ local theme = lush(function()
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-    StatusLine   { bg = C.primary, fg = C.primary_dark }, -- Status line of current window
-    StatusLineNC { bg = StatusLine.bg.darken(40), fg = StatusLine.fg.darken(20) }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    TabLine      { bg = Normal.bg.lighten(10), fg = Normal.fg.darken(20) }, -- Tab pages line, not active tab page label
-    TabLineFill  { TabLine }, -- Tab pages line, where there are no labels
-    TabLineSel   { bg = C.primary_light.darken(20), fg = C.secondary.darken(30) }, -- Tab pages line, active tab page label
-    Title        { Normal, gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
-    Visual       { bg = C.secondary_light.mix(Normal.bg, 80).desaturate(20), fg = Normal.fg.darken(15) }, -- Visual mode selection
+    StatusLine   {}, -- Status line of current window
+    StatusLineNC {}, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    TabLine      {}, -- Tab pages line, not active tab page label
+    TabLineFill  {}, -- Tab pages line, where there are no labels
+    TabLineSel   {}, -- Tab pages line, active tab page label
+    Title        {}, -- Titles for output from ":set all", ":autocmd" etc.
+    Visual       {}, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
-    WarningMsg   { fg = C.warn, gui = "italic" }, -- Warning messages
+    WarningMsg   {}, -- Warning messages
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- Winseparator { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     -- WildMenu     { }, -- Current match in 'wildmenu' completion
@@ -141,38 +141,38 @@ local theme = lush(function()
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = C.primary.darken(15).desaturate(20), gui = "italic" }, -- Any comment
+    Comment        {}, -- Any comment
 
-    Constant       { fg = C.data.saturate(40), gui = "bold italic" }, -- (*) Any constant
-    String         { fg = C.message.lighten(40) }, --   A string constant: "this is a string"
-    Character      { fg = String.fg.darken(25).saturate(60), gui = "" }, --   A character constant: 'c', '\n'
-    Boolean        { Constant, fg = C.secondary.saturate(30).lighten(20) }, --   A boolean constant: TRUE, false
-    Number         { fg = C.numbers }, --   A number constant: 123, -1.23, 0x123, 0b1011
-    Float          { fg = Number.fg.saturate(50).lighten(20), gui = "italic" }, --   A floating point constant: 2.3e10
+    Constant       {}, -- (*) Any constant
+    String         {}, --   A string constant: "this is a string"
+    Character      {}, --   A character constant: 'c', '\n'
+    Boolean        {}, --   A boolean constant: TRUE, false
+    Number         {}, --   A number constant: 123, -1.23, 0x123, 0b1011
+    Float          {}, --   A floating point constant: 2.3e10
 
-    Identifier     { fg = C.primary.darken(50).saturate(50).mix(C.secondary_light, 10).lighten(40) }, -- (*) Any variable name
-    Function       { fg = C.primary_light.darken(15).saturate(25) }, --   Function name (also: methods for classes)
+    Identifier     {}, -- (*) Any variable name
+    Function       {}, --   Function name (also: methods for classes)
 
-    Statement      { fg = C.primary.lighten(40).saturate(60) }, -- (*) Any statement
-    Conditional    { fg = C.primary.rotate(280).lighten(35).saturate(30) }, --   if, then, else, endif, switch, etc.
-    Repeat         { Conditional }, --   for, do, while, etc.
-    Keyword        { fg = C.data.mix(Conditional.fg, 30).saturate(50), gui = "italic" }, --   any other keyword
-    Label          { Keyword, gui = "" }, --   case, default, etc.
-    Operator       { fg = Conditional.fg.darken(10), gui = "italic" }, --   "sizeof", "+", "*", etc.
-    Exception      { fg = C.err.mix(Conditional.fg, 10) }, --   try, catch, throw
+    Statement      {}, -- (*) Any statement
+    Conditional    {}, --   if, then, else, endif, switch, etc.
+    Repeat         {}, --   for, do, while, etc.
+    Keyword        {}, --   any other keyword
+    Label          {}, --   case, default, etc.
+    Operator       {}, --   "sizeof", "+", "*", etc.
+    Exception      {}, --   try, catch, throw
 
-    PreProc        { fg = C.secondary_light.desaturate(10).lighten(10) }, -- (*) Generic Preprocessor
+    PreProc        {}, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = C.secondary_light.mix(C.primary, 10).saturate(60) }, -- (*) int, long, char, etc.
+    Type           {}, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
-    Structure      { fg = C.secondary_light }, --   struct, union, enum, etc.
+    Structure      {}, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
 
-    Special        { fg = C.message.lighten(50).saturate(50).rotate(30), gui = "italic" }, -- (*) Any special symbol
+    Special        {}, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
     -- Delimiter      { }, --   Character that needs attention
@@ -181,33 +181,33 @@ local theme = lush(function()
 
     -- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
-    Error          { bg = C.err, fg = Normal.fg }, -- Any erroneous construct
-    Todo           { bg = Normal.bg.mix(IncSearch.bg, 10).lighten(20), fg = Normal.fg.darken(10) }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Error          {}, -- Any erroneous construct
+    Todo           {}, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
 
     -- Git related syntax groups
-    DiffChange   { fg = C.warn.mix(Normal.bg, 40).lighten(40).desaturate(20) }, -- Diff mode: Changed line |diff.txt|
-    DiffChanged  { fg = C.warn.mix(Normal.bg, 40).lighten(40).desaturate(20) }, -- Diff mode: Changed line |diff.txt|
-    DiffAdd      { fg = C.message.mix(Normal.bg, 10).lighten(25).desaturate(20) }, -- Diff mode: Added line |diff.txt|
-    DiffAdded    { fg = C.message.mix(Normal.bg, 10).lighten(25).desaturate(20) }, -- Diff mode: Added line |diff.txt|
-    DiffDelete   { fg = C.err.mix(Normal.bg, 30).lighten(25).desaturate(20) }, -- Diff mode: Deleted line |diff.txt|
-    DiffDeleted  { fg = C.err.mix(Normal.bg, 30).lighten(25).desaturate(20) }, -- Diff mode: Deleted line |diff.txt|
-    DiffText     { bg = C.err.mix(Normal.bg, 10), fg = DiffChange.fg }, -- Diff mode: Changed text within a changed line |diff.txt|
+    DiffChange   {}, -- Diff mode: Changed line |diff.txt|
+    DiffChanged  {}, -- Diff mode: Changed line |diff.txt|
+    DiffAdd      {}, -- Diff mode: Added line |diff.txt|
+    DiffAdded    {}, -- Diff mode: Added line |diff.txt|
+    DiffDelete   {}, -- Diff mode: Deleted line |diff.txt|
+    DiffDeleted  {}, -- Diff mode: Deleted line |diff.txt|
+    DiffText     {}, -- Diff mode: Changed text within a changed line |diff.txt|
 
     -- Language-based tags
     -- CSS
-    cssProp { fg = C.primary_dark.lighten(50).saturate(20) },
-    cssAttrRegion { fg = cssProp.fg.lighten(60).rotate(-100) },
+    cssProp {},
+    cssAttrRegion {},
 
     -- HTML
-    htmlTag { fg = C.primary.lighten(50).saturate(20) },
-    htmlArg { fg = htmlTag.fg.darken(15).rotate(20) },
-    htmlSpecialTagName { htmlTag },
+    htmlTag {},
+    htmlArg {},
+    htmlSpecialTagName {},
 
     -- TypeScript
-    typescriptEndColons { Normal },
-    typescriptTry        { fg = C.err.mix(Conditional.fg, 80).darken(30).saturate(60) },
-    typescriptExceptions { fg = C.err.mix(C.primary_dark, 20) },
+    typescriptEndColons {},
+    typescriptTry        {},
+    typescriptExceptions {},
 
     
     -- Sets the highlight for selected items within the picker.
@@ -252,10 +252,10 @@ local theme = lush(function()
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    DiagnosticError            { fg = C.err, gui = "italic" } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticWarn             { fg = C.warn.lighten(30), gui = "italic" } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticInfo             { fg = C.primary_light.darken(15).saturate(30) } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticHint             { fg = C.important.lighten(20), gui = "italic" } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError            {} , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn             {} , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo             {} , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint             {} , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
@@ -351,34 +351,34 @@ end)
 
 local yokai = {
   normal = {
-    a = {bg = C.primary_light.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
+    a = {},
+    b = {},
+    c = {},
   },
   insert = {
-    a = {bg = C.secondary_light.darken(30).hex, fg = C.primary_dark.darken(20).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
+    a = {},
+    b = {},
+    c = {},
   },
   visual = {
-    a = {bg = C.data.darken(10).hex, fg = C.primary_dark.darken(30).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
+    a = {},
+    b = {},
+    c = {},
   },
   replace = {
-    a = {bg = C.important.darken(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
+    a = {},
+    b = {},
+    c = {},
   },
   command = {
-    a = {bg = C.message.lighten(20).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
+    a = {},
+    b = {},
+    c = {},
   },
   inactive = {
-    a = {bg = C.primary.darken(20).desaturate(60).hex, fg = C.primary_dark.darken(10).hex, gui = 'bold'},
-    b = {bg = C.primary_dark.darken(5).hex, fg = C.primary_light.darken(20).hex},
-    c = {bg = C.primary_dark.darken(10).hex, fg = C.secondary_light.darken(10).hex},
+    a = {
+    b = {},
+    c = {},
   }
 }
 
