@@ -47,13 +47,13 @@ local hsl = lush.hsl
 
 local C = {}
 -- primary colors are the main drivers behind the theme concept
-C.primary =         hsl(265, 15, 32) -- used for color mixing and tone
-C.secondary =       hsl(50, 12, 32) -- used for backgrounds and color mixing
-C.tertiary =        hsl(120, 8, 49) -- used for color mixing and tone
+C.primary =         hsl(285, 25, 30) -- used for color mixing and tone
+C.secondary =       hsl(40, 40, 72) -- used for backgrounds and color mixing
+C.tertiary =        hsl(210, 38, 79) -- used for color mixing and tone
 
 -- tertiary colors are used for data types and standard messaging
 C.data =            hsl(280, 41, 54)
-C.numbers =         hsl(176, 45, 40)
+C.numbers =         hsl(176, 35, 40)
 C.message =         hsl(77, 38, 37)
 
 C.err =             hsl(350, 50, 55) -- reds
@@ -65,24 +65,53 @@ C.important =       hsl(22, 53, 55) -- often oranges
 ---@diagnostic disable: undefined-global
 local theme = lush(function()
   return {
-    PrimaryLightest   { fg = C.primary.lighten(50) },
-    PrimaryLight      { fg = C.primary.lighten(30) },
-    Primary           { fg = C.primary.saturate(20) },
-    PrimaryDark       { fg = C.primary.darken(20) },
-    PrimaryDarkest    { fg = C.primary.darken(50) },
+    PrimaryLightest   { fg = C.primary.saturate(30).lighten(60) },     -- PrimaryLightest
+    PrimaryLight      { fg = C.primary.saturate(10).lighten(30) },     -- PrimaryLight
+    Primary           { fg = C.primary.saturate(20) },    -- Primary
+    PrimaryDark       { fg = C.primary.desaturate(10).darken(20) },      -- PrimaryDark
+    PrimaryDarkest    { fg = C.primary.desaturate(20).darken(60) },      -- PrimaryDarkest
 
-    SecondaryLightest { fg = C.secondary.lighten(50) },
-    SecondaryLight    { fg = C.secondary.lighten(30) },
-    Secondary         { fg = C.secondary.saturate(20) },
-    SecondaryDark     { fg = C.secondary.darken(20) },
-    SecondaryDarkest  { fg = C.secondary.darken(50) },
+    SecondaryLightest { fg = C.secondary.saturate(30).lighten(60) },   -- SecondaryLightest
+    SecondaryLight    { fg = C.secondary.saturate(10).lighten(30) },   -- SecondaryLight
+    Secondary         { fg = C.secondary.saturate(20) },  -- Secondary
+    SecondaryDark     { fg = C.secondary.desaturate(10).darken(20) },    -- SecondaryDark
+    SecondaryDarkest  { fg = C.secondary.desaturate(20).darken(60) },    -- SecondaryDarkest
 
-    TertiaryLightest  { fg = C.tertiary.lighten(50) },
-    TertiaryLight     { fg = C.tertiary.lighten(30) },
-    Tertiary          { fg = C.tertiary },
-    TertiaryDark      { fg = C.tertiary.darken(20) },
-    TertiaryDarkest   { fg = C.tertiary.darken(50) },
+    TertiaryLightest  { fg = C.tertiary.saturate(30).lighten(60) },  -- TertiaryLightest
+    TertiaryLight     { fg = C.tertiary.saturate(10).lighten(30) },  -- TertiaryLight
+    Tertiary          { fg = C.tertiary },                           -- Tertiary
+    TertiaryDark      { fg = C.tertiary.desaturate(10).darken(20) },   -- TertiaryDark
+    TertiaryDarkest   { fg = C.tertiary.desaturate(20).darken(60) },   -- TertiaryDarkest
 
+    DataLightest      { fg = C.data.desaturate(50) },   -- DataLightest
+    DataLight         { fg = C.data.desaturate(20) },   -- DataLight
+    Data              { fg = C.data },                  -- Data
+    DataDeep          { fg = C.data.saturate(20) },     -- DataDeep
+    DataDeepest       { fg = C.data.saturate(50) },     -- DataDeepest
+
+    NumbersLightest   { fg = C.numbers.desaturate(50) },  -- NumbersLightest
+    NumbersLight      { fg = C.numbers.desaturate(20) },  -- NumbersLight
+    Numbers           { fg = C.numbers },                 -- Numbers
+    NumbersDeep       { fg = C.numbers.saturate(20) },    -- NumbersDeep
+    NumbersDeepest    { fg = C.numbers.saturate(50) },    -- NumbersDeepest
+
+    MessageLightest   { fg = C.message.desaturate(50) },  -- MessageLightest
+    MessageLight      { fg = C.message.desaturate(20) },  -- MessageLight
+    Message           { fg = C.message },                 -- Message
+    MessageDeep       { fg = C.message.saturate(20) },    -- MessageDeep
+    MessageDeepest    { fg = C.message.saturate(50) },    -- MessageDeepest
+
+    ErrLight        { fg = C.err.desaturate(40) },  -- ErrorLight
+    Err             { fg = C.err },                -- Error
+    ErrDeep         { fg = C.err.saturate(40) },   -- ErrorDeep
+
+    WarnLight       { fg = C.warn.desaturate(40) }, -- WarningLight
+    Warn            { fg = C.warn },               -- Warning
+    WarnDeep        { fg = C.warn.saturate(40) },  -- WarningDeep
+
+    ImportantLight  { fg = C.important.desaturate(40) }, -- ImportantLight
+    Important       { fg = C.important },              -- Important
+    ImportantDeep   { fg = C.important.saturate(40) },  -- ImportantDeep
 
     -- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
     -- groups, mostly used for styling UI elements.
@@ -94,39 +123,39 @@ local theme = lush(function()
     --
     -- See :h highlight-groups
     --
-    Normal          {}, -- Normal text
-    NormalFloat     {}, -- Normal text in floating windows.
-    NormalNC        {}, -- normal text in non-current windows
-    Pmenu           {}, -- Popup menu: Normal item.
-    PmenuSel        {}, -- Popup menu: Selected item.
-    PmenuSbar       {}, -- Popup menu: Scrollbar.
-    PmenuThumb      {}, -- Popup menu: Thumb of the scrollbar.
-    ColorColumn     {}, -- Columns set with 'colorcolumn'
-    Conceal         {}, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor          {}, -- Character under the cursor
-    lCursor         {}, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
-    CursorIM        {}, -- Like Cursor, but used when in IME mode |CursorIM|
-    CursorColumn    {}, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    CursorLine      {}, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-    Directory       {}, -- Directory names (and other special names in listings)
-    EndOfBuffer     {}, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
-    TermCursor      {}, -- Cursor in a focused terminal
-    TermCursorNC    {}, -- Cursor in an unfocused terminal
-    ErrorMsg        {}, -- Error messages on the command line
-    VertSplit       {}, -- Column separating vertically split windows
+    Normal          { SecondaryLightest, bg = PrimaryDarkest.fg }, -- Normal text
+    NormalFloat     { Normal }, -- Normal text in floating windows.
+    NormalNC        { Normal, fg = PrimaryLightest.fg }, -- normal text in non-current windows
+    Pmenu           { PrimaryLightest, bg = PrimaryDark.fg }, -- Popup menu: Normal item.
+    PmenuSel        { SecondaryLightest, bg = SecondaryLightest.fg.mix(Normal.bg, 70) }, -- Popup menu: Selected item.
+    PmenuSbar       { Pmenu }, -- Popup menu: Scrollbar.
+    PmenuThumb      { PmenuSel }, -- Popup menu: Thumb of the scrollbar.
+    ColorColumn     { bg = SecondaryDark.fg.mix(PrimaryDarkest.fg, 80) }, -- Columns set with 'colorcolumn'
+    Conceal         { bg = Normal.fg, fg = Normal.bg }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
+    Cursor          { Conceal }, -- Character under the cursor
+    lCursor         { Conceal }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM        { Conceal }, -- Like Cursor, but used when in IME mode |CursorIM|
+    CursorColumn    { ColorColumn }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorLine      { ColorColumn }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    Directory       { fg = Tertiary.fg.saturate(50) }, -- Directory names (and other special names in listings)
+    EndOfBuffer     { bg = PrimaryDarkest.fg, fg = PrimaryLight.fg }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
+    TermCursor      { Conceal }, -- Cursor in a focused terminal
+    TermCursorNC    { Conceal, bg = Conceal.bg.darken(40) }, -- Cursor in an unfocused terminal
+    ErrorMsg        { fg = C.err }, -- Error messages on the command line
+    VertSplit       { bg = TertiaryDarkest.fg, fg = TertiaryDark.fg }, -- Column separating vertically split windows
     -- Folded       { }, -- Line used for closed folds
     -- FoldColumn   { }, -- 'foldcolumn'
-    SignColumn      {}, -- Column where |signs| are displayed
-    IncSearch       {}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    Substitute      {}, -- |:substitute| replacement text highlighting
-    LineNr          {}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr    {}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen      {}, -- Character under the cursor or just before it, if it is a pa.err bracket, and its match. |pi_paren.txt|
+    SignColumn      { ColorColumn }, -- Column where |signs| are displayed
+    IncSearch       { bg = SecondaryDarkest.fg }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Substitute      { bg = TertiaryDarkest.fg }, -- |:substitute| replacement text highlighting
+    LineNr          { ColorColumn, fg = TertiaryDark.fg }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    CursorLineNr    { ColorColumn, fg = TertiaryLight.fg }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    MatchParen      { fg = SecondaryLight.fg.saturate(20) }, -- Character under the cursor or just before it, if it is a pa.err bracket, and its match. |pi_paren.txt|
     -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg      { }, -- |more-prompt|
-    NonText      {}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText      { fg = TertiaryDarkest.fg }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     -- Question     { }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     -- Search       { }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
@@ -141,9 +170,9 @@ local theme = lush(function()
     TabLineFill  {}, -- Tab pages line, where there are no labels
     TabLineSel   {}, -- Tab pages line, active tab page label
     Title        {}, -- Titles for output from ":set all", ":autocmd" etc.
-    Visual       {}, -- Visual mode selection
+    Visual       { bg = SecondaryDark.fg, fg = SecondaryLightest.fg }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
-    WarningMsg   {}, -- Warning messages
+    WarningMsg   {bg = C.err.saturate(30), fg = PrimaryDarkest.fg }, -- Warning messages
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- Winseparator { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     -- WildMenu     { }, -- Current match in 'wildmenu' completion
@@ -157,38 +186,38 @@ local theme = lush(function()
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        {}, -- Any comment
+    Comment        { fg = TertiaryDarkest.fg.mix(PrimaryLight.fg, 50).saturate(10) }, -- Any comment
 
-    Constant       {}, -- (*) Any constant
-    String         {}, --   A string constant: "this is a string"
-    Character      {}, --   A character constant: 'c', '\n'
-    Boolean        {}, --   A boolean constant: TRUE, false
-    Number         {}, --   A number constant: 123, -1.23, 0x123, 0b1011
-    Float          {}, --   A floating point constant: 2.3e10
+    Constant       { DataDeep, gui = "bold" }, -- (*) Any constant
+    String         { fg = MessageLight.fg.saturate(60) }, --   A string constant: "this is a string"
+    Character      { MessageDeepest, gui = "bold" }, --   A character constant: 'c', '\n'
+    Boolean        { Secondary, gui = "bold" }, --   A boolean constant: TRUE, false
+    Number         { fg = Numbers.fg }, --   A number constant: 123, -1.23, 0x123, 0b1011
+    Float          { fg = NumbersDeepest.fg, gui = "bold"}, --   A floating point constant: 2.3e10
 
-    Identifier     {}, -- (*) Any variable name
-    Function       {}, --   Function name (also: methods for classes)
+    Identifier     { SecondaryLightest }, -- (*) Any variable name
+    Function       { PrimaryLightest }, --   Function name (also: methods for classes)
 
     Statement      { Function }, -- (*) Any statement
     Conditional    { Function }, --   if, then, else, endif, switch, etc.
     Repeat         { Function }, --   for, do, while, etc.
-    Keyword        {  }, --   any other keyword
-    Label          {  }, --   case, default, etc.
-    Operator       {  }, --   "sizeof", "+", "*", etc.
-    Exception      {  }, --   try, catch, throw
+    Keyword        { SecondaryLight }, --   any other keyword
+    Label          { SecondaryLight }, --   case, default, etc.
+    Operator       { TertiaryLight }, --   "sizeof", "+", "*", etc.
+    Exception      { TertiaryLight }, --   try, catch, throw
 
-    PreProc        {  }, -- (*) Generic Preprocessor
+    PreProc        { SecondaryLight }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
     -- Define         { }, --   Preprocessor #define
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           {  }, -- (*) int, long, char, etc.
+    Type           { Secondary }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
-    Structure      {  }, --   struct, union, enum, etc.
+    Structure      { Secondary }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
 
-    Special        {}, -- (*) Any special symbol
+    Special        { Tertiary }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
     -- Delimiter      { }, --   Character that needs attention
@@ -202,14 +231,14 @@ local theme = lush(function()
 
 
     -- Git related syntax groups
-    Diff         {gui = "bold"},
-    DiffChange   { Diff, fg = C.warn }, -- Diff mode: Changed line |diff.txt|
-    DiffChanged  { Diff, fg = C.warn }, -- Diff mode: Changed line |diff.txt|
-    DiffAdd      { Diff, fg = C.message }, -- Diff mode: Added line |diff.txt|
-    DiffAdded    { Diff, fg = C.message }, -- Diff mode: Added line |diff.txt|
-    DiffDelete   { Diff, fg = C.err.darken(20) }, -- Diff mode: Deleted line |diff.txt|
-    DiffDeleted  { Diff, fg = C.err.darken(20) }, -- Diff mode: Deleted line |diff.txt|
-    DiffText     { Diff, fg = C.err, gui = "bold" }, -- Diff mode: Changed text within a changed line |diff.txt|
+    Diff         { gui = "bold" },
+    DiffChange   { Diff, fg = WarnDeep.fg }, -- Diff mode: Changed line |diff.txt|
+    DiffChanged  { Diff, fg = WarnDeep.fg }, -- Diff mode: Changed line |diff.txt|
+    DiffAdd      { Diff, fg = MessageDeep.fg }, -- Diff mode: Added line |diff.txt|
+    DiffAdded    { Diff, fg = MessageDeep.fg }, -- Diff mode: Added line |diff.txt|
+    DiffDelete   { Diff, fg = ErrDeep.fg }, -- Diff mode: Deleted line |diff.txt|
+    DiffDeleted  { Diff, fg = ErrDeep.fg }, -- Diff mode: Deleted line |diff.txt|
+    DiffText     { Diff, fg = ErrDeep.fg, gui = "bold" }, -- Diff mode: Changed text within a changed line |diff.txt|
 
     -- Language-based tags
     -- CSS
@@ -271,7 +300,7 @@ local theme = lush(function()
     --
     DiagnosticError            { fg = C.err } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticWarn             { fg = C.warn } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticInfo             { fg = PrimaryLight.fg.darken(20).saturate(40) } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo             { fg = PrimaryLight.fg.saturate(30) } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticHint             { fg = DiagnosticInfo.fg.rotate(-40) } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
@@ -370,7 +399,7 @@ local yokai = {
   normal = {
     c = { bg = C.primary.lighten(10).hex, fg = C.secondary.lighten(80).hex },
     b = { bg = C.primary.lighten(30).hex, fg = C.primary.lighten(20).hex },
-    a = { bg = C.primary.hex, fg = C.primary.hex },
+    a = { bg = C.primary.hex, fg = C.secondary.hex },
   },
   insert = {
     c = { bg = C.primary.lighten(10).hex, fg = C.secondary.lighten(80).hex },
