@@ -189,7 +189,7 @@ local theme = lush(function()
     Comment        { Whitespace }, -- Any comment
 
     Constant       { DataDeep, gui = "bold" }, -- (*) Any constant
-    String         { fg = MessageLight.fg.saturate(30) }, --   A string constant: "this is a string"
+    String         { fg = MessageLight.fg.saturate(10) }, --   A string constant: "this is a string"
     Character      { String }, --   A character constant: 'c', '\n'
     Boolean        { DataDeep }, --   A boolean constant: TRUE, false
     Number         { fg = Numbers.fg }, --   A number constant: 123, -1.23, 0x123, 0b1011
