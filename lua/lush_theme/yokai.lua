@@ -380,34 +380,34 @@ end)
 
 local yokai = {
   normal = {
-    c = { bg = C.primary.lighten(10).hex, fg = C.secondary.lighten(80).hex },
-    b = { bg = C.primary.lighten(30).hex, fg = C.primary.lighten(20).hex },
-    a = { bg = C.primary.hex, fg = C.secondary.hex },
+    c = { bg = C.secondary.darken(80).hex, fg = C.secondary.lighten(80).hex },
+    b = { bg = C.secondary.darken(60).hex, fg = C.secondary.hex },
+    a = { bg = C.secondary.darken(40).hex, fg = C.secondary.lighten(40).hex },
   },
   insert = {
-    c = { bg = C.primary.lighten(10).hex, fg = C.secondary.lighten(80).hex },
-    b = { bg = C.primary.lighten(30).hex, fg = C.primary.lighten(20).hex },
-    a = { bg = C.primary.hex, fg = C.primary.hex },
+    c = { bg = C.primary.darken(40).hex, fg = C.secondary.lighten(80).hex },
+    b = { bg = C.primary.darken(10).hex, fg = C.primary.lighten(20).hex },
+    a = { bg = C.primary.hex, fg = C.secondary.hex },
   },
   visual = {
-    c = { bg = C.primary.lighten(10).hex, fg = C.secondary.lighten(80).hex },
-    b = { bg = C.primary.lighten(30).hex, fg = C.primary.lighten(20).hex },
-    a = { bg = C.primary.hex, fg = C.primary.hex },
+    c = { bg = C.tertiary.darken(80).hex, fg = C.secondary.lighten(80).hex },
+    b = { bg = C.tertiary.darken(60).hex, fg = C.tertiary.darken(10).hex },
+    a = { bg = C.tertiary.darken(40).hex, fg = C.secondary.lighten(40).hex },
   },
   replace = {
-    c = { bg = C.primary.lighten(10).hex, fg = C.secondary.lighten(80).hex },
-    b = { bg = C.primary.lighten(30).hex, fg = C.primary.lighten(20).hex },
-    a = { bg = C.primary.hex, fg = C.primary.hex },
+    c = { bg = C.err.desaturate(30).darken(80).hex, fg = C.secondary.lighten(80).hex },
+    b = { bg = C.err.desaturate(30).darken(50).hex, fg = C.err.desaturate(30).darken(20).hex },
+    a = { bg = C.err.desaturate(30).darken(30).hex, fg = C.secondary.hex },
   },
   command = {
-    c = { bg = C.primary.lighten(10).hex, fg = C.secondary.lighten(80).hex },
-    b = { bg = C.primary.lighten(30).hex, fg = C.primary.lighten(20).hex },
-    a = { bg = C.primary.hex, fg = C.primary.hex },
+    c = { bg = C.important.desaturate(30).darken(80).hex, fg = C.secondary.lighten(80).hex },
+    b = { bg = C.important.desaturate(30).darken(50).hex, fg = C.important.desaturate(30).darken(20).hex },
+    a = { bg = C.important.desaturate(30).darken(30).hex, fg = C.secondary.hex },
   },
   inactive = {
-    c = { bg = C.primary.lighten(10).hex, fg = C.secondary.lighten(80).hex },
-    b = { bg = C.primary.lighten(30).hex, fg = C.primary.lighten(20).hex },
-    a = { bg = C.primary.hex, fg = C.primary.hex },
+    c = { bg = C.numbers.darken(80).hex, fg = C.secondary.lighten(80).hex },
+    b = { bg = C.numbers.darken(60).hex, fg = C.numbers.lighten(10).hex },
+    a = { bg = C.numbers.darken(40).hex, fg = C.secondary.hex },
   }
 }
 
