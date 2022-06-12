@@ -173,7 +173,7 @@ local theme = lush(function()
     TabLineSel   { bg = Primary.fg.desaturate(50), fg = SecondaryLightest.fg }, -- Tab pages line, active tab page label
     Title        { gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
     WarningMsg   { fg = ImportantDeep.fg.lighten(10) }, -- Warning messages
-    Whitespace   { fg = TertiaryDarkest.fg.mix(PrimaryLight.fg, 30).saturate(10), gui = "italic" }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
+    Whitespace   { fg = TertiaryDarkest.fg.mix(PrimaryLightest.fg, 40).saturate(10), gui = "italic" }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     Winseparator { VertSplit }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     WildMenu     { Visual, fg = NormalFloat.fg }, -- Current match in 'wildmenu' completion
 
