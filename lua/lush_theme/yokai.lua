@@ -247,9 +247,9 @@ local theme = lush(function()
 
     -- Telescope syntax highlight-groups
     TelescopeNormal {  },
-    TelescopePromptNormal {},
-    TelescopeResultsNormal {},
-    TelescopePreviewNormal {},
+    TelescopePromptNormal { bg = PrimaryDark.fg },
+    TelescopeResultsNormal { bg = PrimaryDarkest.fg },
+    TelescopePreviewNormal { bg = PrimaryDarkest.fg.desaturate(10) },
 
     --   Otherwise set them specifically
     TelescopeBorder {  },
@@ -263,7 +263,7 @@ local theme = lush(function()
     TelescopeResultsTitle { TelescopeTitle, bg = TelescopeResultsNormal.bg },
     TelescopePreviewTitle { TelescopeTitle, bg = TelescopePreviewNormal.bg },
 
-    TelescopePromptCounter { fg = C.secondary.lighten(20).saturate(50) },
+    TelescopePromptCounter { DataDeep },
 
 
     -- These groups are for the native LSP client and diagnostic system. Some
