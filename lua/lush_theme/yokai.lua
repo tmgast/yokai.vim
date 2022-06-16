@@ -206,18 +206,18 @@ local theme = lush(function()
     Operator       { TertiaryLight }, --   "sizeof", "+", "*", etc.
     Exception      { ErrLight }, --   try, catch, throw
 
-    PreProc        { SecondaryLight }, -- (*) Generic Preprocessor
+    PreProc        { Secondary }, -- (*) Generic Preprocessor
     Include        { PreProc }, --   Preprocessor #include
     Define         { PreProc }, --   Preprocessor #define
     Macro          { PreProc }, --   Same as Define
     PreCondit      { PreProc }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = TertiaryLight.fg.mix(NumbersDeep.fg, 50) }, -- (*) int, long, char, etc.
+    Type           { fg = TertiaryLight.fg.mix(SecondaryDark.fg, 50).saturate(70) }, -- (*) int, long, char, etc.
     StorageClass   { Type }, --   static, register, volatile, etc.
     Structure      { Type }, --   struct, union, enum, etc.
     Typedef        { Type }, --   A typedef
 
-    Special        { fg = PrimaryLightest.fg.mix(NumbersDeep.fg, 90).lighten(40) }, -- (*) Any special symbol
+    Special        { fg = PrimaryLightest.fg.mix(TertiaryLight.fg, 60) }, -- (*) Any special symbol
     SpecialChar    { Special }, --   Special character in a constant
     Tag            { Special }, --   You can use CTRL-] on this
     Delimiter      { Special }, --   Character that needs attention
