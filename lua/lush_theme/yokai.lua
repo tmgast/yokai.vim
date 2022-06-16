@@ -195,7 +195,7 @@ local theme = lush(function()
     Number         { fg = Numbers.fg }, --   A number constant: 123, -1.23, 0x123, 0b1011
     Float          { fg = NumbersDeepest.fg, gui = "bold"}, --   A floating point constant: 2.3e10
 
-    Identifier     { SecondaryLightest }, -- (*) Any variable name
+    Identifier     { fg = SecondaryDark.fg.saturate(100) }, -- (*) Any variable name
     Function       { PrimaryLightest }, --   Function name (also: methods for classes)
 
     Statement      { Function }, -- (*) Any statement
