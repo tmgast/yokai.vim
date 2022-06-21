@@ -270,8 +270,8 @@ local theme = lush(function()
     FidgetProgress { fg = SecondaryDark.fg, gui="italic" },
 
     DapBreakpoint { bg = TertiaryDarkest.fg.mix(Normal.bg, 70), fg = Err.fg, gui="bold" },
-    DapLogPoint {DapStopped, fg = NumbersDeep.fg },
-    DapStopped {DapBreakpoint, fg = MessageDeep.fg },
+    DapLogPoint { DapBreakpoint, fg = NumbersDeep.fg },
+    DapStopped { DapBreakpoint, fg = MessageDeep.fg },
 
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
